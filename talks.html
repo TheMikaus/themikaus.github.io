@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Michael "Mikaus" Whiteley — AI / Gameplay / Tools Engineer" />
+  <meta property="og:title" content="Michael "Mikaus" Whiteley — Talks & Writing" />
+  <meta property="og:description" content="AI / Gameplay / Tools Engineering • Unreal Engine • C++ • Tools" />
+  <meta property="og:type" content="website" />
+  <title>Talks & Writing — Mikaus</title>
+
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:," />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.75rem;">
+          <div class="brand__mark" aria-hidden="true">MW</div>
+          <div class="brand__text">
+            <div class="brand__name" id="brandName">Mikaus</div>
+            <div class="brand__tag" id="brandTag">AI • Gameplay • Tools</div>
+          </div>
+        </a>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+        <a href="talks.html" aria-current="page">Talks</a>
+        <a href="contact.html">Contact</a>
+        <button id="themeToggle" class="btn btn--ghost" type="button" aria-label="Toggle theme">
+          Theme
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="section section--alt" id="talks">
+      <div class="container">
+        <div class="section__head">
+          <h1>Talks & Writing</h1>
+          <p class="muted">Optional—but great for credibility. Add links as you publish them.</p>
+        </div>
+
+        <div class="list" id="talkList">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="muted small">© <span id="year"></span> <span id="footerName">Michael "Mikaus" Whiteley</span></div>
+      <div class="muted small">Built for GitHub Pages • No build step</div>
+    </div>
+  </footer>
+
+  <script src="assets/content.js"></script>
+  <script src="assets/main.js"></script>
+</body>
+</html>
