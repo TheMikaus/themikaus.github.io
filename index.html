@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Michael “Mikaus” Whiteley — AI / Gameplay / Tools Engineer" />
+  <meta property="og:title" content="Michael “Mikaus” Whiteley — Portfolio" />
+  <meta property="og:description" content="AI / Gameplay / Tools Engineering • Unreal Engine • C++ • Tools" />
+  <meta property="og:type" content="website" />
+  <title>Mikaus — AI • Gameplay • Tools</title>
+
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:," />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true">MW</div>
+        <div class="brand__text">
+          <div class="brand__name" id="brandName">Mikaus</div>
+          <div class="brand__tag" id="brandTag">AI • Gameplay • Tools</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#talks">Talks</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" class="btn btn--ghost" type="button" aria-label="Toggle theme">
+          Theme
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <h1 id="heroTitle">AI / Gameplay / Tools Engineer</h1>
+          <p class="lead" id="heroLead">
+            I build robust gameplay systems, AI behaviors, and designer-friendly tools—primarily in Unreal Engine (C++).
+          </p>
+
+          <div class="hero__cta" id="heroCtas">
+            <!-- populated by JS -->
+          </div>
+
+          <div class="hero__meta" id="heroMeta">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <div class="hero__card">
+          <div class="card">
+            <div class="card__header">
+              <div class="pill" id="availabilityPill">Open to opportunities</div>
+              <div class="muted" id="locationLine">US • Remote/Hybrid</div>
+            </div>
+
+            <div class="card__body">
+              <div class="statgrid" id="quickStats">
+                <!-- populated by JS -->
+              </div>
+            </div>
+
+            <div class="card__footer">
+              <div class="muted small" id="nowLine">Currently: building tools + game systems</div>
+            </div>
+          </div>
+
+          <div class="card card--subtle">
+            <div class="card__body">
+              <div class="kbdrow">
+                <span class="kbd">Ctrl</span><span class="kbd">K</span>
+                <span class="muted">Quick search</span>
+              </div>
+              <div class="kbdrow">
+                <span class="kbd">T</span>
+                <span class="muted">Toggle theme</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head">
+          <h2>Projects</h2>
+          <p class="muted">A few representative builds—systems, tools, and creative tech.</p>
+        </div>
+
+        <div class="controls">
+          <input id="projectSearch" class="input" type="search" placeholder="Search projects (name, tags, tech)..." />
+          <select id="projectFilter" class="input">
+            <option value="all">All tags</option>
+          </select>
+        </div>
+
+        <div class="grid" id="projectGrid" aria-live="polite">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="experience">
+      <div class="container">
+        <div class="section__head">
+          <h2>Experience</h2>
+          <p class="muted">Impact-focused bullets you can keep aligned with your resume.</p>
+        </div>
+
+        <ol class="timeline" id="experienceTimeline">
+          <!-- populated by JS -->
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section__head">
+          <h2>Skills</h2>
+          <p class="muted">A quick scan for recruiters and hiring managers.</p>
+        </div>
+
+        <div class="chipgrid" id="skillChips">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="talks">
+      <div class="container">
+        <div class="section__head">
+          <h2>Talks & Writing</h2>
+          <p class="muted">Optional—but great for credibility. Add links as you publish them.</p>
+        </div>
+
+        <div class="list" id="talkList">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__head">
+          <h2>Contact</h2>
+          <p class="muted">Fast ways to reach me.</p>
+        </div>
+
+        <div class="contact" id="contactCards">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="muted small">© <span id="year"></span> <span id="footerName">Michael “Mikaus” Whiteley</span></div>
+      <div class="muted small">Built for GitHub Pages • No build step</div>
+    </div>
+  </footer>
+
+  <div class="command" id="commandPalette" aria-hidden="true">
+    <div class="command__overlay" data-close></div>
+    <div class="command__panel" role="dialog" aria-modal="true" aria-label="Quick search">
+      <div class="command__head">
+        <input id="commandInput" class="command__input" type="search" placeholder="Search projects, experience, skills..." />
+        <button class="btn btn--ghost" data-close type="button">Esc</button>
+      </div>
+      <div class="command__results" id="commandResults"></div>
+      <div class="command__hint muted small">Tip: type a tag like “Unreal”, “AI”, or “Tools”.</div>
+    </div>
+  </div>
+
+  <script src="assets/content.js"></script>
+  <script src="assets/main.js"></script>
+</body>
+</html>
