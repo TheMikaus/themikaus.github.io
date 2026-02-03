@@ -7,7 +7,7 @@ window.PORTFOLIO = {
     'I enable teams to tell their story through gameplay, and the tools that craft them.',
 
   availability: 'Available for new opportunities',
-  locationLine: 'United States • Remote/Hybrid • Open to Relocation',
+  locationLine: 'United States • Remote/Hybrid',
 
   ctas: [
     { label: 'GitHub', href: 'https://github.com/TheMikaus', kind: 'primary' },
@@ -19,31 +19,29 @@ window.PORTFOLIO = {
     'Unreal Engine • C++',
     'Gameplay Ability System',
     'AI Systems • Debug/Tools',
-    'Shipping-minded engineering',
   ],
 
   quickStats: [
     { k: 'Focus', v: 'AI / Gameplay / Tools' },
     { k: 'Engine', v: 'Unreal (UE5.x)' },
     { k: 'Languages', v: 'C++ • Python' },
-    { k: 'Strength', v: 'Designer velocity' },
+    { k: 'Strength', v: 'Customer-focused' },
   ],
 
-  nowLine: 'Currently: building scalable gameplay systems + tooling',
+  nowLine: 'Currently: Exploring new opportunities in game development',
 
   projects: [
     {
-      name: 'Fake - Unreal Tools — Debug & Designer Workflows',
+      name: 'Unannounced Unreal Project',
       description:
-        'Tooling patterns to make iteration fast: visualization, authoring helpers, data export, and runtime toggles.',
-      tags: ['Unreal', 'Tools', 'ImGui', 'Editor', 'Workflow'],
+        'Creating tools, and gameplay systems in UE for an unannounced project.',
+      tags: ['Unreal', 'GAS', 'Tools', 'ImGui', 'Workflow'],
       links: [
-        { label: 'Samples', href: '#', type: 'link' },
+        //{ label: 'Samples', href: '#', type: 'link' },
       ],
       highlights: [
-        'UI/UX focused tools for non-engineers',
-        'Performance-aware instrumentation',
-        'Data/metadata export pipelines',
+        'Exploring Unreal Engine and its underlying systems.',
+        'Implementing gameplay systems using Gameplay Ability System (GAS).', 
       ],
     },
   ],
@@ -56,13 +54,13 @@ window.PORTFOLIO = {
       where: 'Remote',
       bullets: [
         'Designed and implemented metadata export, validation, and debugging systems for conversation and adventure creation in an unannounced Unreal Engine project.',
-        'Led console port team through implementation of key features for New World: Aeternum including UI (Radial Wheel Menu), Input systems (plugin system, action consumption, shift modifiers), user-controller association, and Trophies/Achievements.',
-        'Developed and supported AI systems for New World, a live large-scale online multiplayer game.',
-        'Designed AI Agent communication system enabling AI-to-AI blackboard communication, data passing, and targeting tag systems.',
-        'Designed and implemented AI stuck detection with heat map visualization to identify and fix problematic navigation areas.',
-        'Created AI threat system managing target selection with entity tagging, selection, and multitargeting capabilities.',
-        'Mentored junior engineer through first major feature implementation for NightHaven expansion.',
-        'Evaluated and planned refactor of New World\'s datatables to more mergeable format.',
+        'Led a team of co-devs through the implementation of several key features and system changes required to have New World: Aeternum meet TRCs and XRs for console launch. Systems ranged from UI (Radial Wheel Menu), Input(new plugin system, action consumption layer for UI, and shift modifiers to allow for more actions on the gamepad), User to controller association, and Trophies/Achievements.',
+        'Developed and supported AI systems for a live large-scale online multiplayer game.',
+        'Evaluated and planned a refactor of New World\’s datatables to a more mergeable format.',
+        'Designed an AI Agent communication system broken into multiple parts that allowed AI to write to other AI blackboards, pass along, and set extra tags for targeting purposes.',
+        'Mentored a junior engineer through the process of his first major feature in the game for the NightHaven expansion.',
+        'Designed and implemented AI stuck detection, included a heat map that allowed us to pinpoint and fix areas that were problematic for AI.',
+        'Created an AI threat system to manage how the AI chooses targets. Added building block features like entity tagging/selection, and multitargeting to the AI.',
       ],
     },
     {
@@ -92,6 +90,7 @@ window.PORTFOLIO = {
       bullets: [
         'Worked on strike team completing territory management, durability systems, and hazards for survival crafting version of New World.',
         'Created high-level architecture for client/server infrastructure and launch roadmap for unannounced mobile project.',
+        'Created pitch documents covering USP, team size, estimated costs, timelines, and estimated profit.'
         'Simplified narrative and audio pipeline for unannounced Crytek PC game, improving modification and validation workflows.',
         'Designed and implemented device-side home automation daemon on Amazon Echo enabling Hue bulb discovery and control.',
         'Mentored struggling Echo team over six weeks, taking them from nothing to working prototype for calling/texting features.',
@@ -136,20 +135,19 @@ window.PORTFOLIO = {
     {
       degree: 'Master of Science in Computer Science',
       school: 'University of Central Florida',
-      when: '// TODO: Add graduation year',
+      when: 'Fall 2007',
       details: [],
     },
     {
       degree: 'Bachelor of Science in Computer Science',
       school: 'University of Central Florida',
-      when: '// TODO: Add graduation year',
+      when: 'Fall 2004',
       details: [],
     },
   ],
 
   talks: [
-    { title: 'Designing upgrade systems that scale for designers', when: 'TBD', link: '#' },
-    { title: 'Practical debugging UX in Unreal', when: 'TBD', link: '#' },
+    { title: 'Eventually', when: 'TBD', link: '#' },
   ],
 
   contact: [
