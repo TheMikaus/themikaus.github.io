@@ -33,21 +33,7 @@ window.PORTFOLIO = {
 
   projects: [
     {
-      name: 'Jury Rigs (UE) — Salvage-run Roguelike Systems',
-      description:
-        'Core run progression + upgrade/tuning system design; GAS-friendly architecture; tools to reduce designer authoring burden.',
-      tags: ['Unreal', 'Gameplay', 'GAS', 'Systems', 'Tools'],
-      links: [
-        { label: 'Overview', href: '#', type: 'link' },
-      ],
-      highlights: [
-        'Roguelike-style run modifiers (“Field Tunings”)',
-        'Data-driven tuning authoring',
-        'UI + debug tooling for iteration',
-      ],
-    },
-    {
-      name: 'Unreal Tools — Debug & Designer Workflows',
+      name: 'Fake - Unreal Tools — Debug & Designer Workflows',
       description:
         'Tooling patterns to make iteration fast: visualization, authoring helpers, data export, and runtime toggles.',
       tags: ['Unreal', 'Tools', 'ImGui', 'Editor', 'Workflow'],
@@ -58,47 +44,6 @@ window.PORTFOLIO = {
         'UI/UX focused tools for non-engineers',
         'Performance-aware instrumentation',
         'Data/metadata export pipelines',
-      ],
-    },
-    {
-      name: 'Jamstik MIDI → MusicXML + Guitar Tab Pipeline',
-      description:
-        'Python tooling to map polyphonic MIDI to guitar-tab-friendly MusicXML, with app workflow ideas (recording, preview, playback).',
-      tags: ['Python', 'Music', 'MIDI', 'Tooling'],
-      links: [
-        { label: 'Repo', href: '#', type: 'repo' },
-      ],
-      highlights: [
-        'String assignment strategies (incl. MPE channels)',
-        'Printable + readable tab output',
-        'Workflow-focused UI concepts',
-      ],
-    },
-    {
-      name: 'Ren’Py Visual Novel — Panoramic Car Interior + Dynamic Camera',
-      description:
-        'Stylized VN presentation with separate scenery layers and simulated first-person camera motion.',
-      tags: ['Ren’Py', 'Game Dev', 'Tools', '2D'],
-      links: [
-        { label: 'Notes', href: '#', type: 'link' },
-      ],
-      highlights: [
-        'Reusable layered assets',
-        'Camera transforms for motion',
-        'Style exploration (paper/book UI)',
-      ],
-    },
-    {
-      name: '3D Printing — Game Accessories & Cases',
-      description:
-        'Functional designs: board game organizers, compact rule cards, logo integration, and printable inserts.',
-      tags: ['3D Printing', 'CAD', 'Design'],
-      links: [
-        { label: 'Gallery', href: '#', type: 'link' },
-      ],
-      highlights: [
-        'Printability + assembly considerations',
-        'Iterative prototyping mindset',
       ],
     },
   ],
