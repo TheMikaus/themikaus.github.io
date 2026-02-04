@@ -120,6 +120,13 @@ h1{
   font-size: clamp(28px, 4vw, 44px);
   letter-spacing: -0.03em;
 }
+.hero__subtitle{
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+  margin: -15px 0 16px;
+  line-height: 1.4;
+}
 .lead{
   color: var(--muted);
   font-size: 16px;

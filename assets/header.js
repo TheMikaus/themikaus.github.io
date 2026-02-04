@@ -1,9 +1,16 @@
 // Common header component for all pages
 (function() {
-  // Determine current page from the page's data attribute or URL
-  const currentPage = document.documentElement.getAttribute('data-page') || 'home';
-  
-  const headerHTML = `
+  // Wait for content.js to load if it hasn't yet
+  function initHeader() {
+    // Determine current page from the page's data attribute or URL
+    const currentPage = document.documentElement.getAttribute('data-page') || 'home';
+    
+    // Check if there are enabled projects and talks
+    const data = window.PORTFOLIO || {};
+    const hasProjects = (data.projects || []).some(p => p.enabled !== false);
+    const hasTalks = (data.talks || []).some(t => t.enabled);
+    
+    const headerHTML = `
   <header class="topbar">
     <div class="container topbar__inner">
       <div class="brand">
@@ -34,10 +41,10 @@
       <nav class="nav" aria-label="Primary">
         <div class="nav-links" style="display: flex; gap: 6px; background: var(--card); border-radius: 12px; padding: 6px; border: 1px solid var(--line);">
           <a href="index.html"${currentPage === 'home' ? ' aria-current="page"' : ''}>Home</a>
-          <a href="projects.html"${currentPage === 'projects' ? ' aria-current="page"' : ''}>Projects</a>
+          ${hasProjects ? `<a href="projects.html"${currentPage === 'projects' ? ' aria-current="page"' : ''}>Projects</a>` : ''}
           <a href="experience.html"${currentPage === 'experience' ? ' aria-current="page"' : ''}>Experience</a>
           <a href="skills.html"${currentPage === 'skills' ? ' aria-current="page"' : ''}>Skills</a>
-          <a href="talks.html"${currentPage === 'talks' ? ' aria-current="page"' : ''}>Talks</a>
+          ${hasTalks ? `<a href="talks.html"${currentPage === 'talks' ? ' aria-current="page"' : ''}>Talks</a>` : ''}
         </div>
       </nav>
     </div>
@@ -99,39 +106,48 @@
       }
     }
   </style>`;
-  
-  // Insert header at the beginning of body (after skip link if it exists)
-  const skipLink = document.querySelector('.skip-link');
-  if (skipLink) {
-    skipLink.insertAdjacentHTML('afterend', headerHTML);
-  } else {
-    document.body.insertAdjacentHTML('afterbegin', headerHTML);
-  }
-  
-  // Add mobile menu toggle functionality
-  const menuToggle = document.querySelector('.mobile-menu-toggle');
-  const nav = document.querySelector('.nav');
-  
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', function() {
-      const isOpen = nav.classList.toggle('is-open');
-      menuToggle.setAttribute('aria-expanded', isOpen);
-    });
     
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-      if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-        nav.classList.remove('is-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
+    // Insert header at the beginning of body (after skip link if it exists)
+    const skipLink = document.querySelector('.skip-link');
+    if (skipLink) {
+      skipLink.insertAdjacentHTML('afterend', headerHTML);
+    } else {
+      document.body.insertAdjacentHTML('afterbegin', headerHTML);
+    }
     
-    // Close menu when clicking a link
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', function() {
-        nav.classList.remove('is-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
+    // Add mobile menu toggle functionality
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.nav');
+    
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', function() {
+        const isOpen = nav.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', isOpen);
       });
-    });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+          nav.classList.remove('is-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      
+      // Close menu when clicking a link
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+          nav.classList.remove('is-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  }
+
+  // Check if content.js has loaded yet
+  if (window.PORTFOLIO) {
+    initHeader();
+  } else {
+    // Wait for content.js to load
+    window.addEventListener('DOMContentLoaded', initHeader);
   }
 })();

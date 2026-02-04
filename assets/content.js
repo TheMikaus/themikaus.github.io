@@ -2,9 +2,10 @@ window.PORTFOLIO = {
   name: 'Michael “Mikaus” Whiteley',
   shortName: 'Mikaus',
   tagline: 'AI • Gameplay • Tools',
-  heroTitle: 'Game Developer • Musician',
+  heroTitle: 'AI / Gameplay / Tools Engineer',
+  heroSubtitle: 'Game Developer • Musician • Creator',
   heroLead:
-    'I am a creative that loves to tell stories anyway I can—through code, music, and more. In the work place I strive to provide tools for my team that empower them to create the amazing stories and experiences they want to share. At home that means music, art, woodworking, crotcheting, writing, and whatever new means of expression I have available.',
+    'I’m a creative who loves telling stories in any way I can — through code, music, and systems that enable others to create.\n\nProfessionally, I design and build gameplay, AI, and tooling that empower teams to author, iterate, and ship great experiences. Outside of work, I make music, art, woodworking projects, write, and explore whatever new form of expression has caught my curiosity.',
 
   availability: 'Available for new opportunities',
   locationLine: 'Remote/Hybrid • Seattle',
@@ -25,7 +26,6 @@ window.PORTFOLIO = {
     { k: 'Focus', v: 'AI •  Gameplay • Tools' },
     { k: 'Languages', v: 'C/C++ • Java • Lua • Python' },
     { k: 'Engines', v: 'Lumberyard • UE5' },
-    { k: 'CMS', v: 'Diversion • Git • Perforce' },
   ],
 
   nowLine: 'Currently: Looking for a new adventure.',
@@ -128,7 +128,10 @@ window.PORTFOLIO = {
     'C++',
     'Gameplay Ability System (GAS)',
     'AI Behavior Tree & Threat Systems',
-    'Replication / Networking fundamentals',
+    'Git',
+    'Perforce',
+    'Diversion',
+    'ImGui',
     'Tools & Pipelines',
     'Debug UX / Visualization',
     'Python',

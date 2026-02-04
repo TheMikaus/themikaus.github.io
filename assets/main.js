@@ -15,6 +15,7 @@
   };
 
   const setText = (id, value) => { const n = document.getElementById(id); if (n) n.textContent = value; };
+  const setHTML = (id, value) => { const n = document.getElementById(id); if (n) n.innerHTML = value; };
 
   // ---------- theme ----------
   const THEME_KEY = 'mikaus_theme';
@@ -45,7 +46,8 @@
   setText('brandName', data.shortName);
   setText('brandTag', data.tagline);
   setText('heroTitle', data.heroTitle);
-  setText('heroLead', data.heroLead);
+  setText('heroSubtitle', data.heroSubtitle);
+  setHTML('heroLead', data.heroLead.replace(/\n/g, '<br>'));
   setText('availabilityPill', data.availability);
   setText('locationLine', data.locationLine);
   setText('nowLine', data.nowLine);
@@ -156,7 +158,14 @@
   // ---------- project preview (homepage) ----------
   const projectPreview = $('#projectPreview');
   if (projectPreview){
-    data.projects.filter(p => p.enabled !== false).slice(0, 3).forEach(p => projectPreview.appendChild(projectCard(p)));
+    const enabledProjects = data.projects.filter(p => p.enabled !== false);
+    if (enabledProjects.length === 0) {
+      // Hide the entire projects section if no enabled projects
+      const projectSection = projectPreview.closest('.section');
+      if (projectSection) projectSection.style.display = 'none';
+    } else {
+      enabledProjects.slice(0, 3).forEach(p => projectPreview.appendChild(projectCard(p)));
+    }
   }
 
   // ---------- experience ----------
