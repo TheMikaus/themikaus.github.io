@@ -2,9 +2,9 @@ window.PORTFOLIO = {
   name: 'Michael “Mikaus” Whiteley',
   shortName: 'Mikaus',
   tagline: 'AI • Gameplay • Tools',
-  heroTitle: 'AI / Gameplay / Tools Engineer',
+  heroTitle: 'Game Developer • Musician',
   heroLead:
-    'I enable teams to tell their story through gameplay, and the tools that craft them.',
+    'I am a creative that loves to tell stories anyway I can—through code, music, and more. In the work place I strive to provide tools for my team that empower them to create the amazing stories and experiences they want to share. At home that means music, art, woodworking, crotcheting, writing, and whatever new means of expression I have available.',
 
   availability: 'Available for new opportunities',
   locationLine: 'Remote/Hybrid • Seattle',
@@ -23,9 +23,8 @@ window.PORTFOLIO = {
 
   quickStats: [
     { k: 'Focus', v: 'AI •  Gameplay • Tools' },
-    { k: 'Strength', v: 'Customer-focused' },
-    { k: 'Engines', v: 'Lumberyard • UE5' },
     { k: 'Languages', v: 'C/C++ • Java • Lua • Python' },
+    { k: 'Engines', v: 'Lumberyard • UE5' },
     { k: 'CMS', v: 'Diversion • Git • Perforce' },
   ],
 
