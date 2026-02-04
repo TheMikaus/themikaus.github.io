@@ -2,7 +2,7 @@ window.PORTFOLIO = {
   name: 'Michael “Mikaus” Whiteley',
   shortName: 'Mikaus',
   tagline: 'AI • Gameplay • Tools',
-  heroTitle: 'AI / Gameplay / Tools Engineer',
+  heroTitle: 'AI / Gameplay / Tools',
   heroSubtitle: 'Game Developer • Musician • Creator',
   heroLead:
     'I’m a creative who loves telling stories in any way I can — through code, music, and systems that enable others to create.\n\nProfessionally, I design and build gameplay, AI, and tooling that empower teams to author, iterate, and ship great experiences. Outside of work, I make music, art, woodworking projects, write, and explore whatever new form of expression has caught my curiosity.',
@@ -26,6 +26,53 @@ window.PORTFOLIO = {
     { k: 'Focus', v: 'AI •  Gameplay • Tools' },
     { k: 'Languages', v: 'C/C++ • Java • Lua • Python' },
     { k: 'Engines', v: 'Lumberyard • UE5' },
+  ],
+
+  shippedTitles: [
+    {
+      title: 'New World: Aeternum',
+      company: 'Amazon Game Studios',
+      platform: 'PC, PS5, Xbox Series X|S',
+      year: 2024,
+      image: 'assets/images/NewWorldAeternum.jpg',
+      highlights: [
+        'Led console port team (UI, Input systems, Bootflow, Trophies/Achievements)',
+        'Handled TRC/XR compliance for launch',
+      ],
+    },
+    {
+      title: 'New World',
+      company: 'Amazon Game Studios',
+      platform: 'PC',
+      year: 2021,
+      image: 'assets/images/NewWorld.jpg',
+      highlights: [
+        'AI communication & threat systems',
+        'AI stuck detection with heat map visualization',
+      ],
+    },
+    {
+      title: 'Minecraft',
+      company: 'Microsoft',
+      platform: 'Multi-platform',
+      year: 2019,
+      image: 'assets/images/Minecraft.jpg',
+      highlights: [
+        'Designed and implemented extensible TrueType font system',
+        'UI implementation for character customization',
+      ],
+    },
+    {
+      title: 'Minecraft Earth',
+      company: 'Microsoft',
+      platform: 'Mobile',
+      year: 2019,
+      image: 'assets/images/MinecraftEarth.jpg',
+      highlights: [
+        'UI framework evaluation and implementation',
+        'Character customization system UI',
+      ],
+    },
   ],
 
   nowLine: 'Currently: Looking for a new adventure.',

@@ -24,8 +24,8 @@
         </div>
         <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.75rem;">
           <div class="brand__text">
-            <div class="brand__name" id="brandName">Mikaus</div>
-            <div class="brand__tag" id="brandTag">AI • Gameplay • Tools</div>
+            <div class="brand__name" id="brandName">${data.shortName || 'Mikaus'}</div>
+            <div class="brand__tag" id="brandTag">${data.tagline || 'AI • Gameplay • Tools'}</div>
           </div>
         </a>
       </div>

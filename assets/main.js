@@ -80,6 +80,45 @@
     });
   }
 
+  // shipped titles
+  const shippedGrid = $('#shippedTitlesGrid');
+  if (shippedGrid && data.shippedTitles) {
+    data.shippedTitles.forEach(title => {
+      const cardChildren = [];
+      
+      // Add image if provided
+      if (title.image) {
+        cardChildren.push(
+          el('img', { 
+            src: title.image, 
+            alt: title.title,
+            style: 'width: 100%; height: 200px; object-fit: cover; border-radius: 8px 8px 0 0; margin: -16px -16px 12px -16px; display: block;'
+          })
+        );
+      }
+      
+      const bodyChildren = [
+        el('h3', {}, [title.title]),
+        el('p', { class: 'muted', style: 'margin: 0.25rem 0;' }, [title.company]),
+        el('p', { class: 'muted', style: 'font-size: 0.875rem; margin: 0.25rem 0;' }, [
+          `${title.platform} • ${title.year}`
+        ])
+      ];
+      
+      if (title.highlights && title.highlights.length) {
+        bodyChildren.push(
+          el('ul', { 
+            style: 'margin: 0.75rem 0 0 0; padding-left: 1.25rem; font-size: 0.875rem; line-height: 1.6;' 
+          }, title.highlights.map(h => el('li', {}, [h])))
+        );
+      }
+      
+      cardChildren.push(el('div', { class: 'card__body' }, bodyChildren));
+      const card = el('div', { class: 'card', style: 'overflow: hidden;' }, cardChildren);
+      shippedGrid.appendChild(card);
+    });
+  }
+
   // ---------- projects ----------
   const projectGrid = $('#projectGrid');
   const projectSearch = $('#projectSearch');
