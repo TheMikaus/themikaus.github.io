@@ -16,8 +16,16 @@
         </a>
       </div>
 
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
       <nav class="nav" aria-label="Primary">
-        <div style="display: flex; gap: 6px; background: var(--card); border-radius: 12px; padding: 6px; border: 1px solid var(--line);">
+        <div class="nav-links" style="display: flex; gap: 6px; background: var(--card); border-radius: 12px; padding: 6px; border: 1px solid var(--line);">
           <a href="index.html"${currentPage === 'home' ? ' aria-current="page"' : ''}>Home</a>
           <a href="projects.html"${currentPage === 'projects' ? ' aria-current="page"' : ''}>Projects</a>
           <a href="experience.html"${currentPage === 'experience' ? ' aria-current="page"' : ''}>Experience</a>
@@ -34,7 +42,64 @@
         </div>
       </nav>
     </div>
-  </header>`;
+  </header>
+  
+  <style>
+    .mobile-menu-toggle {
+      display: none;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--text);
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .nav {
+        position: fixed;
+        top: 70px;
+        right: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        max-width: 280px;
+        display: none;
+      }
+      
+      .nav.is-open {
+        display: flex;
+      }
+      
+      .nav .nav-links {
+        flex-direction: column;
+        margin-left: 0 !important;
+        width: 100%;
+      }
+      
+      .nav .nav-links a {
+        width: 100%;
+        text-align: left;
+      }
+      
+      .nav > div:last-child {
+        margin-left: 0 !important;
+        justify-content: center;
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px solid var(--line);
+      }
+    }
+  </style>`;
   
   // Insert header at the beginning of body (after skip link if it exists)
   const skipLink = document.querySelector('.skip-link');
@@ -42,5 +107,32 @@
     skipLink.insertAdjacentHTML('afterend', headerHTML);
   } else {
     document.body.insertAdjacentHTML('afterbegin', headerHTML);
+  }
+  
+  // Add mobile menu toggle functionality
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+  const nav = document.querySelector('.nav');
+  
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', function() {
+      const isOpen = nav.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+        nav.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    
+    // Close menu when clicking a link
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        nav.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
 })();

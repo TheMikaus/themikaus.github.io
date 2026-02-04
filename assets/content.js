@@ -10,21 +10,21 @@ window.PORTFOLIO = {
   locationLine: 'United States • Remote/Hybrid',
 
   ctas: [
-    { label: 'GitHub', href: 'https://github.com/TheMikaus', kind: 'primary' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mikaus-game-dev/', kind: 'ghost' },
+    //{ label: 'GitHub', href: 'https://github.com/TheMikaus', kind: 'primary' },
+    //{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/mikaus-game-dev/', kind: 'ghost' },
     //{ label: 'Download Resume (PDF)', href: '#', kind: 'ghost' },
   ],
 
   metaPills: [
-    'Unreal Engine • C++',
-    'Gameplay Ability System',
-    'AI Systems • Debug/Tools',
+    //'Unreal Engine • C++',
+    //'Gameplay Ability System',
+    //'AI Systems • Debug/Tools',
   ],
 
   quickStats: [
-    { k: 'Focus', v: 'AI / Gameplay / Tools' },
-    { k: 'Engine', v: 'Unreal (UE5.x)' },
-    { k: 'Languages', v: 'C++ • Python' },
+    { k: 'Focus', v: 'AI •  Gameplay • Tools' },
+    { k: 'Engine', v: 'Lumberyard • Unreal (UE5.x)' },
+    { k: 'Languages', v: 'C/C++ • Java • Lua • Python' },
     { k: 'Strength', v: 'Customer-focused' },
   ],
 
@@ -44,6 +44,18 @@ window.PORTFOLIO = {
         'Implementing gameplay systems using Gameplay Ability System (GAS).', 
       ],
       enabled: true, // set to false to hide this project
+    },
+    {
+      name: 'Sample Project',
+      description: 'Add description',
+      tags: ['Unreal', 'GAS', 'Tools', 'ImGui', 'Workflow'],
+      links: [
+        //{ label: 'Samples', href: '#', type: 'link' },
+      ],
+      highlights: [
+        'STUFF',
+      ],
+      enabled: false, // set to false to hide this project
     },
   ],
 
