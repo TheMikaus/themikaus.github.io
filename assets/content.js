@@ -191,8 +191,7 @@ window.PORTFOLIO = {
       image: 'assets/images/IST.jpg',
       enabled: true,
       bullets: [
-        'Created and maintained data-driven launcher for multiple radar simulations.',
-        'Created and maintained build and installation system for radar product.',
+        'Worked on a Command and Control simulation for Army researchers',
       ],
     },
   ],

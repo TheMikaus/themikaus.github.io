@@ -1,6 +1,10 @@
 (() => {
   const data = window.PORTFOLIO;
 
+  // ---------- constants ----------
+  const EXPERIENCE_IMG_WIDTH = 300;
+  const EXPERIENCE_IMG_HEIGHT = 200;
+
   // ---------- helpers ----------
   const $ = (sel, root = document) => root.querySelector(sel);
   const el = (tag, attrs = {}, children = []) => {
@@ -219,21 +223,33 @@
   const exp = $('#experienceTimeline');
   if (exp && data.experience){
     data.experience.filter(r => r.enabled !== false).forEach(r => {
-      const cardChildren = [];
+      const card = el('div', { 
+        class: 'card', 
+        style: 'display: flex; gap: 0; padding: 0; margin-bottom: 1.5rem; overflow: visible;' 
+      });
       
-      // Add image if provided
+      // Left side - Image (like a tab sticking out)
       if (r.image) {
-        cardChildren.push(
-          el('img', { 
-            src: r.image, 
-            alt: r.org,
-            style: 'width: 100%; height: 200px; object-fit: cover; object-position: top; display: block;'
-          })
+        card.appendChild(
+          el('div', {
+            style: `flex: 0 0 auto; width: ${EXPERIENCE_IMG_WIDTH}px; height: ${EXPERIENCE_IMG_HEIGHT}px;`
+          }, [
+            el('img', { 
+              src: r.image, 
+              alt: r.org,
+              style: `width: ${EXPERIENCE_IMG_WIDTH}px; height: ${EXPERIENCE_IMG_HEIGHT}px; object-fit: cover; object-position: top; display: block; border-radius: 8px 0 0 8px;`
+            })
+          ])
         );
       }
       
+      // Right side - Content box (forms complete rectangle)
+      const contentBox = el('div', { 
+        style: 'flex: 1; display: flex; flex-direction: column; min-width: 0; border-radius: 0 8px 8px 0; overflow: hidden;' 
+      });
+      
       // Company name as colored header
-      cardChildren.push(
+      contentBox.appendChild(
         el('div', { 
           style: 'background: linear-gradient(135deg, rgba(124,58,237,.2), rgba(34,197,94,.2)); padding: 12px 16px; border-bottom: 1px solid var(--line);' 
         }, [
@@ -241,14 +257,24 @@
         ])
       );
       
-      // Dates
-      cardChildren.push(
-        el('div', { class: 'card__body' }, [
-          el('p', { class: 'muted', style: 'margin: 0; font-size: 0.875rem;' }, [r.when])
-        ])
-      );
+      // Body content
+      const bodyContent = [
+        el('p', { class: 'muted', style: 'margin: 0 0 0.5rem 0; font-size: 0.875rem;' }, [r.when]),
+        el('p', { class: 'muted', style: 'margin: 0 0 0.75rem 0; font-size: 0.875rem;' }, [r.where])
+      ];
       
-      exp.appendChild(el('div', { class: 'card', style: 'overflow: hidden; padding: 0; margin-bottom: 1.5rem;' }, cardChildren));
+      if (r.bullets && r.bullets.length) {
+        bodyContent.push(
+          el('ul', { 
+            style: 'margin: 0; padding-left: 1.25rem; font-size: 0.875rem; line-height: 1.6;' 
+          }, r.bullets.map(b => el('li', {}, [b])))
+        );
+      }
+      
+      contentBox.appendChild(el('div', { class: 'card__body' }, bodyContent));
+      
+      card.appendChild(contentBox);
+      exp.appendChild(card);
     });
   }
 
@@ -264,7 +290,7 @@
           el('img', { 
             src: r.image, 
             alt: r.org,
-            style: 'width: 100%; height: 200px; object-fit: cover; object-position: top; display: block;'
+            style: `width: 100%; height: ${EXPERIENCE_IMG_HEIGHT}px; object-fit: cover; object-position: top; display: block;`
           })
         );
       }
