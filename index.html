@@ -128,47 +128,25 @@
 
     <section class="section">
       <div class="container">
-        <div class="section__head">
-          <h2>Explore</h2>
-          <p class="muted">Select a section to learn more</p>
+        <div class="section__head" style="display: flex; justify-content: space-between; align-items: center;">
+          <h2>Projects</h2>
+          <a href="projects.html" class="btn btn--ghost" style="text-decoration: none;">View all →</a>
         </div>
+        <div class="grid" id="projectPreview">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </section>
 
-        <nav class="grid" aria-label="Main navigation" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-          <a href="projects.html" class="card card--link" style="text-decoration: none; display: block;">
-            <div class="card__body">
-              <h3>Projects</h3>
-              <p class="muted">Representative builds—systems, tools, and creative tech.</p>
-            </div>
-          </a>
-          
-          <a href="experience.html" class="card card--link" style="text-decoration: none; display: block;">
-            <div class="card__body">
-              <h3>Experience</h3>
-              <p class="muted">Professional work history and key contributions.</p>
-            </div>
-          </a>
-          
-          <a href="skills.html" class="card card--link" style="text-decoration: none; display: block;">
-            <div class="card__body">
-              <h3>Skills</h3>
-              <p class="muted">Technical capabilities and core competencies.</p>
-            </div>
-          </a>
-          
-          <a href="talks.html" class="card card--link" style="text-decoration: none; display: block;">
-            <div class="card__body">
-              <h3>Talks & Writing</h3>
-              <p class="muted">Speaking engagements and published content.</p>
-            </div>
-          </a>
-          
-          <a href="contact.html" class="card card--link" style="text-decoration: none; display: block;">
-            <div class="card__body">
-              <h3>Contact</h3>
-              <p class="muted">Get in touch—fast ways to reach me.</p>
-            </div>
-          </a>
-        </nav>
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head" style="display: flex; justify-content: space-between; align-items: center;">
+          <h2>Experience</h2>
+          <a href="experience.html" class="btn btn--ghost" style="text-decoration: none;">View all →</a>
+        </div>
+        <ol class="timeline" id="experiencePreview">
+          <!-- populated by JS -->
+        </ol>
       </div>
     </section>
   </main>

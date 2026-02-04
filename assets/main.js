@@ -152,6 +152,12 @@
   projectFilter?.addEventListener('change', renderProjects);
   renderProjects();
 
+  // ---------- project preview (homepage) ----------
+  const projectPreview = $('#projectPreview');
+  if (projectPreview){
+    data.projects.slice(0, 3).forEach(p => projectPreview.appendChild(projectCard(p)));
+  }
+
   // ---------- experience ----------
   const exp = $('#experienceTimeline');
   if (exp){
@@ -166,10 +172,30 @@
     });
   }
 
+  // ---------- experience preview (homepage) ----------
+  const expPreview = $('#experiencePreview');
+  if (expPreview){
+    data.experience.slice(0, 2).forEach(r => {
+      expPreview.appendChild(el('li', { class:'role' }, [
+        el('div', { class:'role__head' }, [
+          el('div', { class:'role__title' }, [`${r.title} — ${r.org}`]),
+          el('div', { class:'role__meta' }, [`${r.when} • ${r.where}`]),
+        ]),
+        el('ul', {}, (r.bullets || []).slice(0, 3).map(b => el('li', {}, [b]))),
+      ]));
+    });
+  }
+
   // ---------- skills ----------
   const skills = $('#skillChips');
   if (skills){
     data.skills.forEach(s => skills.appendChild(el('span', { class:'chip' }, [s])));
+  }
+
+  // ---------- skills preview (homepage) ----------
+  const skillPreview = $('#skillPreview');
+  if (skillPreview){
+    data.skills.slice(0, 12).forEach(s => skillPreview.appendChild(el('span', { class:'chip' }, [s])));
   }
 
   // ---------- talks ----------
@@ -193,6 +219,18 @@
   if (contact){
     data.contact.forEach(c => {
       contact.appendChild(el('div', { class:'contactcard' }, [
+        el('div', { class:'contactcard__k' }, [c.k]),
+        el('div', { class:'contactcard__v' }, [c.v]),
+        el('a', { class:'contactcard__a btn btn--ghost', href: c.href, target: c.href?.startsWith('http') ? '_blank' : '_self', rel: 'noreferrer' }, [c.label || 'Open']),
+      ]));
+    });
+  }
+
+  // ---------- contact preview (homepage) ----------
+  const contactPreview = $('#contactPreview');
+  if (contactPreview){
+    data.contact.forEach(c => {
+      contactPreview.appendChild(el('div', { class:'contactcard' }, [
         el('div', { class:'contactcard__k' }, [c.k]),
         el('div', { class:'contactcard__v' }, [c.v]),
         el('a', { class:'contactcard__a btn btn--ghost', href: c.href, target: c.href?.startsWith('http') ? '_blank' : '_self', rel: 'noreferrer' }, [c.label || 'Open']),

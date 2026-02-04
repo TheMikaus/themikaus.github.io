@@ -64,7 +64,7 @@ window.PORTFOLIO = {
       ],
     },
     {
-      title: 'Software Engineer (UI)',
+      title: 'Software Engineer (UI/Gameplay)',
       org: 'Microsoft',
       when: 'February 2019 - August 2020',
       where: 'Redmond, WA',
@@ -74,7 +74,7 @@ window.PORTFOLIO = {
       ],
     },
     {
-      title: 'Software Engineer (UI)',
+      title: 'Software Engineer (UI/Gameplay)',
       org: 'Insight Global (Contract for Microsoft)',
       when: 'September 2018 - February 2019',
       where: 'Redmond, WA',
@@ -90,7 +90,7 @@ window.PORTFOLIO = {
       bullets: [
         'Worked on strike team completing territory management, durability systems, and hazards for survival crafting version of New World.',
         'Created high-level architecture for client/server infrastructure and launch roadmap for unannounced mobile project.',
-        'Created pitch documents covering USP, team size, estimated costs, timelines, and estimated profit.'
+        'Created pitch documents covering USP, team size, estimated costs, timelines, and estimated profit.',
         'Simplified narrative and audio pipeline for unannounced Crytek PC game, improving modification and validation workflows.',
         'Designed and implemented device-side home automation daemon on Amazon Echo enabling Hue bulb discovery and control.',
         'Mentored struggling Echo team over six weeks, taking them from nothing to working prototype for calling/texting features.',
