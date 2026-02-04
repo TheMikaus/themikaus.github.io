@@ -112,6 +112,8 @@ window.PORTFOLIO = {
       org: 'Amazon Game Studios',
       when: 'August 2020 - January 2026',
       where: 'Remote',
+      image: 'assets/images/amazongames_logo.jpg',
+      enabled: true,
       bullets: [
         'Designed and implemented metadata export, validation, and debugging systems for conversation and adventure creation in an unannounced Unreal Engine project.',
         'Led a team of co-devs through the implementation of several key features and system changes required to have New World: Aeternum meet TRCs and XRs for console launch. Systems ranged from UI (Radial Wheel Menu), Input(new plugin system, action consumption layer for UI, and shift modifiers to allow for more actions on the gamepad), User to controller association, and Trophies/Achievements.',
@@ -125,9 +127,11 @@ window.PORTFOLIO = {
     },
     {
       title: 'Software Engineer (UI/Gameplay)',
-      org: 'Microsoft',
+      org: 'Mojang (Microsoft)',
       when: 'February 2019 - August 2020',
       where: 'Redmond, WA',
+      image: 'assets/images/Mojang_Studios_Logo.svg',
+      enabled: true,
       bullets: [
         'Designed and implemented extensible font system enabling TrueType fonts in Minecraft UI.',
         'Designed and implemented UI changes for Minecraft Earth and Minecraft\'s character customization system.',
@@ -135,18 +139,22 @@ window.PORTFOLIO = {
     },
     {
       title: 'Software Engineer (UI/Gameplay)',
-      org: 'Insight Global (Contract for Microsoft)',
+      org: 'Insight Global (Microsoft)',
       when: 'September 2018 - February 2019',
       where: 'Redmond, WA',
+      image: 'assets/images/insight_global_logo.jpg',
+      enabled: true,
       bullets: [
         'Evaluated UI framework for Minecraft Earth prototype.',
       ],
     },
     {
       title: 'Software Engineer (Gameplay/Tools/Services)',
-      org: 'Amazon Game Studios',
+      org: 'Amazon/Amazon Game Studios',
       when: 'April 2012 - September 2018',
       where: 'Seattle, WA / Irvine, CA',
+      image: 'assets/images/amazon_logo.jpg',
+      enabled: true,
       bullets: [
         'Worked on strike team completing territory management, durability systems, and hazards for survival crafting version of New World.',
         'Created high-level architecture for client/server infrastructure and launch roadmap for unannounced mobile project.',
@@ -163,6 +171,20 @@ window.PORTFOLIO = {
       org: 'Lockheed Martin',
       when: 'December 2007 - March 2012',
       where: 'Orlando, FL',
+      image: 'assets/images/lockheed_martin_logo.jpg',
+      enabled: true,
+      bullets: [
+        'Created and maintained data-driven launcher for multiple radar simulations.',
+        'Created and maintained build and installation system for radar product.',
+      ],
+    },
+    {
+      title: 'Software Engineer (Tools/Simulation)',
+      org: 'IST (UCF)',
+      when: 'December 2007 - March 2012',
+      where: 'Orlando, FL',
+      image: 'assets/images/IST.jpg',
+      enabled: true,
       bullets: [
         'Created and maintained data-driven launcher for multiple radar simulations.',
         'Created and maintained build and installation system for radar product.',

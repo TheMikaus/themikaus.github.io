@@ -92,15 +92,23 @@
           el('img', { 
             src: title.image, 
             alt: title.title,
-            style: 'width: 100%; height: 200px; object-fit: cover; border-radius: 8px 8px 0 0; margin: -16px -16px 12px -16px; display: block;'
+            style: 'width: 100%; height: 200px; object-fit: cover; display: block;'
           })
         );
       }
       
+      // Title as colored header
+      cardChildren.push(
+        el('div', { 
+          style: 'background: linear-gradient(135deg, rgba(124,58,237,.2), rgba(34,197,94,.2)); padding: 6px 10px; border-bottom: 1px solid var(--line);' 
+        }, [
+          el('h3', { style: 'margin: 0; font-size: 1.25rem;' }, [title.title])
+        ])
+      );
+      
       const bodyChildren = [
-        el('h3', {}, [title.title]),
-        el('p', { class: 'muted', style: 'margin: 0.25rem 0;' }, [title.company]),
-        el('p', { class: 'muted', style: 'font-size: 0.875rem; margin: 0.25rem 0;' }, [
+        el('p', { class: 'muted', style: 'margin: 0 0 0.25rem 0;' }, [title.company]),
+        el('p', { class: 'muted', style: 'font-size: 0.875rem; margin: 0 0 0.75rem 0;' }, [
           `${title.platform} • ${title.year}`
         ])
       ];
@@ -108,13 +116,13 @@
       if (title.highlights && title.highlights.length) {
         bodyChildren.push(
           el('ul', { 
-            style: 'margin: 0.75rem 0 0 0; padding-left: 1.25rem; font-size: 0.875rem; line-height: 1.6;' 
+            style: 'margin: 0; padding-left: 1.25rem; font-size: 0.875rem; line-height: 1.6;' 
           }, title.highlights.map(h => el('li', {}, [h])))
         );
       }
       
       cardChildren.push(el('div', { class: 'card__body' }, bodyChildren));
-      const card = el('div', { class: 'card', style: 'overflow: hidden;' }, cardChildren);
+      const card = el('div', { class: 'card', style: 'overflow: hidden; padding: 0;' }, cardChildren);
       shippedGrid.appendChild(card);
     });
   }
@@ -209,29 +217,75 @@
 
   // ---------- experience ----------
   const exp = $('#experienceTimeline');
-  if (exp){
-    data.experience.forEach(r => {
-      exp.appendChild(el('li', { class:'role' }, [
-        el('div', { class:'role__head' }, [
-          el('div', { class:'role__title' }, [`${r.title} — ${r.org}`]),
-          el('div', { class:'role__meta' }, [`${r.when} • ${r.where}`]),
-        ]),
-        el('ul', {}, (r.bullets || []).map(b => el('li', {}, [b]))),
-      ]));
+  if (exp && data.experience){
+    data.experience.filter(r => r.enabled !== false).forEach(r => {
+      const cardChildren = [];
+      
+      // Add image if provided
+      if (r.image) {
+        cardChildren.push(
+          el('img', { 
+            src: r.image, 
+            alt: r.org,
+            style: 'width: 100%; height: 200px; object-fit: cover; object-position: top; display: block;'
+          })
+        );
+      }
+      
+      // Company name as colored header
+      cardChildren.push(
+        el('div', { 
+          style: 'background: linear-gradient(135deg, rgba(124,58,237,.2), rgba(34,197,94,.2)); padding: 12px 16px; border-bottom: 1px solid var(--line);' 
+        }, [
+          el('h3', { style: 'margin: 0; font-size: 1.25rem;' }, [r.org])
+        ])
+      );
+      
+      // Dates
+      cardChildren.push(
+        el('div', { class: 'card__body' }, [
+          el('p', { class: 'muted', style: 'margin: 0; font-size: 0.875rem;' }, [r.when])
+        ])
+      );
+      
+      exp.appendChild(el('div', { class: 'card', style: 'overflow: hidden; padding: 0; margin-bottom: 1.5rem;' }, cardChildren));
     });
   }
 
   // ---------- experience preview (homepage) ----------
   const expPreview = $('#experiencePreview');
-  if (expPreview){
-    data.experience.slice(0, 2).forEach(r => {
-      expPreview.appendChild(el('li', { class:'role' }, [
-        el('div', { class:'role__head' }, [
-          el('div', { class:'role__title' }, [`${r.title} — ${r.org}`]),
-          el('div', { class:'role__meta' }, [`${r.when} • ${r.where}`]),
-        ]),
-        el('ul', {}, (r.bullets || []).slice(0, 3).map(b => el('li', {}, [b]))),
-      ]));
+  if (expPreview && data.experience){
+    data.experience.filter(r => r.enabled !== false).slice(0, 3).forEach(r => {
+      const cardChildren = [];
+      
+      // Add image if provided
+      if (r.image) {
+        cardChildren.push(
+          el('img', { 
+            src: r.image, 
+            alt: r.org,
+            style: 'width: 100%; height: 200px; object-fit: cover; object-position: top; display: block;'
+          })
+        );
+      }
+      
+      // Company name as colored header
+      cardChildren.push(
+        el('div', { 
+          style: 'background: linear-gradient(135deg, rgba(124,58,237,.2), rgba(34,197,94,.2)); padding: 12px 16px; border-bottom: 1px solid var(--line);' 
+        }, [
+          el('h3', { style: 'margin: 0; font-size: 1.25rem;' }, [r.org])
+        ])
+      );
+      
+      // Dates
+      cardChildren.push(
+        el('div', { class: 'card__body' }, [
+          el('p', { class: 'muted', style: 'margin: 0; font-size: 0.875rem;' }, [r.when])
+        ])
+      );
+      
+      expPreview.appendChild(el('div', { class: 'card', style: 'overflow: hidden; padding: 0; margin-bottom: 1.5rem;' }, cardChildren));
     });
   }
 
