@@ -93,9 +93,36 @@ window.PORTFOLIO = {
       enabled: true, // set to false to hide this project
     },
     {
+      name: 'Band Tool Suite',
+      description: 'Set of tools created by AI/myself to manage band related tasks.',
+      tags: ['Python', 'Audio', 'Metronome', 'JamStik', 'AI'],
+      links: [
+        { label: 'Github', href: 'https://github.com/TheMikaus/BandTools', type: 'link' },
+      ],
+      highlights: [
+        'Audio Annotation Tool',
+        'Metronome',
+        'JamStik Recorder'
+      ],
+      enabled: true, // set to false to hide this project
+    },
+    {
+      name: 'Card Maker',
+      description: 'Contributing to the Open Source tool Card Maker',
+      tags: ['Open Source', 'C#', 'Card Maker', 'Tooling'],
+      links: [
+        { label: 'Fork', href: 'https://github.com/TheMikaus/cardmaker', type: 'link' },
+        { label: 'Original', href: 'https://github.com/nhmkdev/cardmaker', type: 'link' },
+      ],
+      highlights: [
+        'Added Excel spreadsheet support',
+      ],
+      enabled: true, // set to false to hide this project
+    },
+    {
       name: 'Sample Project',
       description: 'Add description',
-      tags: ['Unreal', 'GAS', 'Tools', 'ImGui', 'Workflow'],
+      tags: ['Unreal'],
       links: [
         //{ label: 'Samples', href: '#', type: 'link' },
       ],

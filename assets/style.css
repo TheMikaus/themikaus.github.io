@@ -240,15 +240,35 @@ h1{
   background: color-mix(in srgb, var(--card) 85%, transparent);
   display:flex;
   flex-direction:column;
-  gap: 10px;
+  gap: 12px;
   min-height: 180px;
 }
 .project__top{
-  display:flex; align-items:flex-start; justify-content:space-between; gap: 10px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 40%, transparent);
 }
 .project__name{font-weight:900; letter-spacing:-.02em}
-.project__desc{color:var(--muted); font-size:14px; line-height:1.5}
-.tags{display:flex; flex-wrap:wrap; gap:8px}
+.project__desc{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 40%, transparent);
+}
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in srgb, var(--line) 40%, transparent);
+}
 .tag{
   font-size:12px;
   padding: 4px 8px;

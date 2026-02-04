@@ -142,23 +142,29 @@
   }
 
   function projectCard(p){
-    const top = el('div', { class:'project__top' }, [
+    const topChildren = [
       el('div', {}, [
         el('div', { class:'project__name' }, [p.name]),
-      ]),
-      el('div', { class:'pill' }, [p.tags[0] || 'Project']),
-    ]);
+      ])
+    ];
+    
+    if (p.links && p.links.length > 0) {
+      const linksContainer = el('div', { 
+        style: 'display: flex; gap: 8px; flex-wrap: wrap;' 
+      }, p.links.map(link => el('a', {
+        href: link.href,
+        target: link.href?.startsWith('http') ? '_blank' : '_self',
+        rel: 'noreferrer',
+        class: 'pill',
+        style: 'text-decoration: none; color: inherit;',
+        'data-linktype': link.type || 'link'
+      }, [link.label])));
+      topChildren.push(linksContainer);
+    }
+    
+    const top = el('div', { class:'project__top' }, topChildren);
 
     const tags = el('div', { class:'tags' }, p.tags.map(t => el('span', { class:'tag' }, [t])));
-
-    const links = el('div', { class:'project__links' },
-      (p.links || []).map(l => el('a', {
-        href: l.href,
-        target: l.href?.startsWith('http') ? '_blank' : '_self',
-        rel: 'noreferrer',
-        'data-linktype': l.type || 'link'
-      }, [l.label]))
-    );
 
     const hi = (p.highlights && p.highlights.length)
       ? el('ul', { class:'muted', style:'margin:0 0 0 16px; line-height:1.6' }, p.highlights.slice(0,3).map(h => el('li', {}, [h])))
@@ -167,10 +173,9 @@
     const bodyKids = [
       top,
       el('div', { class:'project__desc' }, [p.description]),
-      tags
     ];
     if (hi) bodyKids.push(hi);
-    bodyKids.push(links);
+    bodyKids.push(tags);
 
     return el('article', { class:'project' }, bodyKids);
   }
