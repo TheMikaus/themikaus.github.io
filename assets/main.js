@@ -255,7 +255,7 @@
   // ---------- experience preview (homepage) ----------
   const expPreview = $('#experiencePreview');
   if (expPreview && data.experience){
-    data.experience.filter(r => r.enabled !== false).slice(0, 3).forEach(r => {
+    data.experience.filter(r => r.enabled !== false && r.showOnMainPage).forEach(r => {
       const cardChildren = [];
       
       // Add image if provided

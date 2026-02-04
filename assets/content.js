@@ -114,6 +114,7 @@ window.PORTFOLIO = {
       where: 'Remote',
       image: 'assets/images/amazongames_logo.jpg',
       enabled: true,
+      showOnMainPage: true,
       bullets: [
         'Designed and implemented metadata export, validation, and debugging systems for conversation and adventure creation in an unannounced Unreal Engine project.',
         'Led a team of co-devs through the implementation of several key features and system changes required to have New World: Aeternum meet TRCs and XRs for console launch. Systems ranged from UI (Radial Wheel Menu), Input(new plugin system, action consumption layer for UI, and shift modifiers to allow for more actions on the gamepad), User to controller association, and Trophies/Achievements.',
@@ -132,6 +133,7 @@ window.PORTFOLIO = {
       where: 'Redmond, WA',
       image: 'assets/images/Mojang_Studios_Logo.svg',
       enabled: true,
+      showOnMainPage: true,
       bullets: [
         'Designed and implemented extensible font system enabling TrueType fonts in Minecraft UI.',
         'Designed and implemented UI changes for Minecraft Earth and Minecraft\'s character customization system.',
@@ -144,6 +146,7 @@ window.PORTFOLIO = {
       where: 'Redmond, WA',
       image: 'assets/images/insight_global_logo.jpg',
       enabled: true,
+      showOnMainPage: true,
       bullets: [
         'Evaluated UI framework for Minecraft Earth prototype.',
       ],
@@ -155,6 +158,7 @@ window.PORTFOLIO = {
       where: 'Seattle, WA / Irvine, CA',
       image: 'assets/images/amazon_logo.jpg',
       enabled: true,
+      showOnMainPage: false,
       bullets: [
         'Worked on strike team completing territory management, durability systems, and hazards for survival crafting version of New World.',
         'Created high-level architecture for client/server infrastructure and launch roadmap for unannounced mobile project.',
@@ -173,6 +177,7 @@ window.PORTFOLIO = {
       where: 'Orlando, FL',
       image: 'assets/images/lockheed_martin_logo.jpg',
       enabled: true,
+      showOnMainPage: false,
       bullets: [
         'Created and maintained data-driven launcher for multiple radar simulations.',
         'Created and maintained build and installation system for radar product.',
