@@ -7,7 +7,7 @@ window.PORTFOLIO = {
     'I enable teams to tell their story through gameplay, and the tools that craft them.',
 
   availability: 'Available for new opportunities',
-  locationLine: 'United States • Remote/Hybrid',
+  locationLine: 'Remote/Hybrid • Seattle',
 
   ctas: [
     //{ label: 'GitHub', href: 'https://github.com/TheMikaus', kind: 'primary' },
@@ -23,12 +23,13 @@ window.PORTFOLIO = {
 
   quickStats: [
     { k: 'Focus', v: 'AI •  Gameplay • Tools' },
-    { k: 'Engine', v: 'Lumberyard • Unreal (UE5.x)' },
-    { k: 'Languages', v: 'C/C++ • Java • Lua • Python' },
     { k: 'Strength', v: 'Customer-focused' },
+    { k: 'Engines', v: 'Lumberyard • UE5' },
+    { k: 'Languages', v: 'C/C++ • Java • Lua • Python' },
+    { k: 'CMS', v: 'Diversion • Git • Perforce' },
   ],
 
-  nowLine: 'Currently: Exploring new opportunities in game development',
+  nowLine: 'Currently: Looking for a new adventure.',
 
   projects: [
     {
