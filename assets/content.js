@@ -43,6 +43,7 @@ window.PORTFOLIO = {
         'Exploring Unreal Engine and its underlying systems.',
         'Implementing gameplay systems using Gameplay Ability System (GAS).', 
       ],
+      enabled: true, // set to false to hide this project
     },
   ],
 
@@ -147,7 +148,7 @@ window.PORTFOLIO = {
   ],
 
   talks: [
-    { title: 'Eventually', when: 'TBD', link: '#' },
+    { title: 'Eventually', when: 'TBD', link: '#', enabled: false }, // set enabled to true to show
   ],
 
   contact: [

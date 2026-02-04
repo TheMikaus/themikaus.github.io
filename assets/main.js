@@ -128,6 +128,7 @@
     const f = projectFilter?.value || 'all';
 
     const filtered = data.projects.filter(p => {
+      if (p.enabled === false) return false; // filter out disabled projects
       const matchesTag = (f === 'all') || p.tags.includes(f);
       if (!matchesTag) return false;
       if (!q) return true;
@@ -155,7 +156,7 @@
   // ---------- project preview (homepage) ----------
   const projectPreview = $('#projectPreview');
   if (projectPreview){
-    data.projects.slice(0, 3).forEach(p => projectPreview.appendChild(projectCard(p)));
+    data.projects.filter(p => p.enabled !== false).slice(0, 3).forEach(p => projectPreview.appendChild(projectCard(p)));
   }
 
   // ---------- experience ----------
@@ -201,7 +202,7 @@
   // ---------- talks ----------
   const talks = $('#talkList');
   if (talks){
-    data.talks.forEach(t => {
+    data.talks.filter(t => t.enabled !== false).forEach(t => {
       talks.appendChild(el('div', { class:'item' }, [
         el('div', {}, [
           el('div', { class:'item__title' }, [
