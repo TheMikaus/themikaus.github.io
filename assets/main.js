@@ -126,8 +126,19 @@
       }
       
       cardChildren.push(el('div', { class: 'card__body' }, bodyChildren));
-      const card = el('div', { class: 'card', style: 'overflow: hidden; padding: 0;' }, cardChildren);
-      shippedGrid.appendChild(card);
+      
+      if (title.experienceId) {
+        const link = el('a', {
+          href: `experience.html#${title.experienceId}`,
+          style: 'text-decoration: none; color: inherit; display: block;'
+        }, [el('div', { class: 'card', style: 'overflow: hidden; padding: 0; transition: transform 0.2s; cursor: pointer;' }, cardChildren)]);
+        link.addEventListener('mouseenter', (e) => e.currentTarget.firstChild.style.transform = 'translateY(-2px)');
+        link.addEventListener('mouseleave', (e) => e.currentTarget.firstChild.style.transform = 'translateY(0)');
+        shippedGrid.appendChild(link);
+      } else {
+        const card = el('div', { class: 'card', style: 'overflow: hidden; padding: 0;' }, cardChildren);
+        shippedGrid.appendChild(card);
+      }
     });
   }
 
@@ -279,6 +290,11 @@
       contentBox.appendChild(el('div', { class: 'card__body' }, bodyContent));
       
       card.appendChild(contentBox);
+      
+      if (r.id) {
+        card.id = r.id;
+      }
+      
       exp.appendChild(card);
     });
   }
@@ -316,7 +332,17 @@
         ])
       );
       
-      expPreview.appendChild(el('div', { class: 'card', style: 'overflow: hidden; padding: 0; margin-bottom: 1.5rem;' }, cardChildren));
+      if (r.id) {
+        const link = el('a', {
+          href: `experience.html#${r.id}`,
+          style: 'text-decoration: none; color: inherit; display: block;'
+        }, [el('div', { class: 'card', style: 'overflow: hidden; padding: 0; margin-bottom: 1.5rem; transition: transform 0.2s; cursor: pointer;' }, cardChildren)]);
+        link.addEventListener('mouseenter', (e) => e.currentTarget.firstChild.style.transform = 'translateY(-2px)');
+        link.addEventListener('mouseleave', (e) => e.currentTarget.firstChild.style.transform = 'translateY(0)');
+        expPreview.appendChild(link);
+      } else {
+        expPreview.appendChild(el('div', { class: 'card', style: 'overflow: hidden; padding: 0; margin-bottom: 1.5rem;' }, cardChildren));
+      }
     });
   }
 

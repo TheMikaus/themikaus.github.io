@@ -30,6 +30,9 @@
 }
 
 *{box-sizing:border-box}
+html{
+  scroll-padding-top: 80px;
+}
 html,body{height:100%}
 body{
   margin:0;

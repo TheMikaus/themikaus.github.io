@@ -35,6 +35,7 @@ window.PORTFOLIO = {
       platform: 'PC, PS5, Xbox Series X|S',
       year: 2024,
       image: 'assets/images/NewWorldAeternum.jpg',
+      experienceId: 'amazon-game-studios',
       highlights: [
         'Led console port team (UI, Input systems, Bootflow, Trophies/Achievements)',
         'Handled TRC/XR compliance for launch',
@@ -46,6 +47,7 @@ window.PORTFOLIO = {
       platform: 'PC',
       year: 2021,
       image: 'assets/images/NewWorld.jpg',
+      experienceId: 'amazon-game-studios',
       highlights: [
         'AI communication & threat systems',
         'AI stuck detection with heat map visualization',
@@ -57,6 +59,7 @@ window.PORTFOLIO = {
       platform: 'Multi-platform',
       year: 2019,
       image: 'assets/images/Minecraft.jpg',
+      experienceId: 'mojang',
       highlights: [
         'Designed and implemented extensible TrueType font system',
         'UI implementation for character customization',
@@ -68,6 +71,7 @@ window.PORTFOLIO = {
       platform: 'Mobile',
       year: 2019,
       image: 'assets/images/MinecraftEarth.jpg',
+      experienceId: 'mojang',
       highlights: [
         'UI framework evaluation and implementation',
         'Character customization system UI',
@@ -135,6 +139,7 @@ window.PORTFOLIO = {
 
   experience: [
     {
+      id: 'amazon-game-studios',
       title: 'Software Engineer (AI/Gameplay/Tools)',
       org: 'Amazon Game Studios',
       when: 'August 2020 - January 2026',
@@ -154,6 +159,7 @@ window.PORTFOLIO = {
       ],
     },
     {
+      id: 'mojang',
       title: 'Software Engineer (UI/Gameplay)',
       org: 'Mojang (Microsoft)',
       when: 'February 2019 - August 2020',
@@ -167,6 +173,7 @@ window.PORTFOLIO = {
       ],
     },
     {
+      id: 'insight-global',
       title: 'Software Engineer (UI/Gameplay)',
       org: 'Insight Global (Microsoft)',
       when: 'September 2018 - February 2019',
