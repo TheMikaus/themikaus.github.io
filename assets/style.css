@@ -423,5 +423,33 @@ h1{
 }
 .result:hover{border-color: var(--line); background: color-mix(in srgb, var(--bg2) 60%, transparent)}
 .result__k{font-weight:900}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .experience-card {
+    flex-direction: column !important;
+  }
+  
+  .experience-card__image {
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  
+  .experience-card__image img {
+    width: 300px !important;
+    max-width: 100% !important;
+    height: 200px !important;
+    border-radius: 8px 8px 0 0 !important;
+    object-fit: cover !important;
+  }
+  
+  .experience-card__content {
+    border-radius: 0 0 8px 8px !important;
+  }
+}
 .result__t{color:var(--muted); font-size:12px}
 .command__hint{padding: 10px 12px 12px}

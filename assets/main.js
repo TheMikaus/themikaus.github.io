@@ -240,7 +240,7 @@
   if (exp && data.experience){
     data.experience.filter(r => r.enabled !== false).forEach(r => {
       const card = el('div', { 
-        class: 'card', 
+        class: 'card experience-card', 
         style: 'display: flex; gap: 0; padding: 0; margin-bottom: 1.5rem; overflow: visible;' 
       });
       
@@ -248,6 +248,7 @@
       if (r.image) {
         card.appendChild(
           el('div', {
+            class: 'experience-card__image',
             style: `flex: 0 0 auto; width: ${EXPERIENCE_IMG_WIDTH}px; height: ${EXPERIENCE_IMG_HEIGHT}px;`
           }, [
             el('img', { 
@@ -261,6 +262,7 @@
       
       // Right side - Content box (forms complete rectangle)
       const contentBox = el('div', { 
+        class: 'experience-card__content',
         style: 'flex: 1; display: flex; flex-direction: column; min-width: 0; border-radius: 0 8px 8px 0; overflow: hidden;' 
       });
       

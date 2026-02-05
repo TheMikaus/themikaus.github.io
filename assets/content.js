@@ -143,7 +143,7 @@ window.PORTFOLIO = {
       title: 'Software Engineer (AI/Gameplay/Tools)',
       org: 'Amazon Game Studios',
       when: 'August 2020 - January 2026',
-      where: 'Remote',
+      where: 'Remote / Seattle, WA / Irvine, CA',
       image: 'assets/images/amazongames_logo.jpg',
       enabled: true,
       showOnMainPage: true,
