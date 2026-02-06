@@ -429,7 +429,7 @@ window.PORTFOLIO = {
     },
     {
       name: 'Redbird',
-      description: 'Mega Man-style platformer in Python, originally intended as a wedding gift. Features player movement, shooting, jumping, monster spawning, and boss mechanics.',
+      description: 'Mega Man-style platformer in Python, originally intended as a wedding gift, but didn\'t complete it. Features player movement, shooting, jumping, monster spawning, and boss mechanics.',
       year: 2013,
       image: 'assets/images/redbird.jpg',
       tags: ['Python', 'Pygame', 'Game Dev', 'Platformer', 'Tiled'],
@@ -464,7 +464,7 @@ window.PORTFOLIO = {
     },
     {
       name: 'Love Faith Passion',
-      description: 'Hand-drawn comic telling the story of how my wife and I got together. Drew by hand, took forever, printed and stapled as a surprise.',
+      description: 'Hand-drawn comic telling the story of how my previous partner and I got together. Drew by hand, took forever, printed and stapled as a surprise.',
       year: 2010,
       image: 'assets/images/love_faith_passion.jpg',
       tags: ['Comics', 'Art', 'Hand-drawn'],
@@ -480,7 +480,7 @@ window.PORTFOLIO = {
     },
     {
       name: 'Arena',
-      description: 'Nintendo DS Rock Paper Scissors game with RPG elements where "ROCK ALWAYS WINS".',
+      description: 'Nintendo DS Rock Paper Scissors game with RPG elements',
       year: 2008,
       image: 'assets/images/arena.jpg',
       tags: ['Nintendo DS', 'Game Dev', 'Homebrew', 'RPG'],
@@ -490,7 +490,6 @@ window.PORTFOLIO = {
       ],
       highlights: [
         'Rock Paper Scissors with RPG mechanics',
-        'Rock always wins design',
         'First DS game project',
       ],
       enabled: true,
