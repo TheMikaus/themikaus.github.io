@@ -135,6 +135,102 @@ window.PORTFOLIO = {
       ],
       enabled: false, // set to false to hide this project
     },
+    {
+      name: 'Redbird',
+      description: 'Mega Man-style platformer in Python, originally intended as a wedding gift. Features player movement, shooting, jumping, monster spawning, and boss mechanics.',
+      image: 'assets/images/redbird.jpg',
+      tags: ['Python', 'Pygame', 'Game Dev', 'Platformer', 'Tiled'],
+      links: [
+        { label: 'Source Code', href: 'http://projectwhiteley.com/pwdownloads/redbird.zip', type: 'link' },
+        { label: 'Dev Notebook', href: 'http://projectwhiteley.com/pwdownloads/redbird.pdf', type: 'link' },
+      ],
+      highlights: [
+        'Player movement, shooting, jumping, and dying mechanics',
+        'Monster spawning and boss door systems',
+        'Camera motion for boss battles',
+        'Used Tiled for level design',
+      ],
+      enabled: true,
+    },
+    {
+      name: 'Todo/Notes Vim Script',
+      description: 'Vim script for taking daily notes and tracking time/tasks for work with syntax highlighting.',
+      image: 'assets/images/todo_notes_vim.jpg',
+      tags: ['Vim', 'Vimscript', 'Productivity', 'Tools'],
+      links: [
+        { label: 'GitHub', href: 'https://github.com/TheMikaus/notes_vimscript', type: 'link' },
+      ],
+      highlights: [
+        'Insert new dates at top of file',
+        'Create and manage task lists',
+        'Mark tasks as done or not done',
+        'Move tasks up and down in file',
+      ],
+      enabled: true,
+    },
+    {
+      name: 'Retrobot',
+      description: 'Robot space game where you battle eight bosses. Built with modular architecture allowing backend changes and cross-platform compilation.',
+      image: 'assets/images/retrobot.jpg',
+      tags: ['C', 'SDL', 'Game Dev', 'Cross-platform'],
+      links: [
+        { label: 'Download', href: 'http://projectwhiteley.com/pwdownloads/Retrobot-20120916.tar.gz', type: 'link' },
+      ],
+      highlights: [
+        'Fight eight bosses (six initial, two unlock after completion)',
+        'Modular architecture with layer interfaces',
+        'Cross-platform SDL implementation',
+        'Recompilable for PC',
+      ],
+      enabled: true,
+    },
+    {
+      name: 'Balloons',
+      description: 'Quick GBA game about shooting balloons with custom sound effects.',
+      image: 'assets/images/balloons.jpg',
+      tags: ['GBA', 'Game Dev', 'Homebrew'],
+      links: [
+        { label: 'Download', href: 'http://projectwhiteley.com/pwdownloads/balloons.gba', type: 'link' },
+      ],
+      highlights: [
+        'Balloon shooting gameplay',
+        'Created custom sound effects',
+        'Complete GBA binary',
+      ],
+      enabled: true,
+    },
+    {
+      name: 'Monster Block',
+      description: 'GBA game made for a competition with limited color palette constraints.',
+      image: 'assets/images/monster_block.jpg',
+      tags: ['GBA', 'Game Dev', 'Homebrew', 'Competition'],
+      links: [
+        { label: 'Binary', href: 'http://projectwhiteley.com/pwdownloads/monsterblock_gba.zip', type: 'link' },
+        { label: 'Source', href: 'http://projectwhiteley.com/pwdownloads/monsterblock_gba_src.zip', type: 'link' },
+      ],
+      highlights: [
+        'Limited color palette constraint',
+        'Competition entry',
+        'Complete with source code',
+      ],
+      enabled: true,
+    },
+    {
+      name: 'Arena',
+      description: 'Nintendo DS Rock Paper Scissors game with RPG elements where "ROCK ALWAYS WINS".',
+      image: 'assets/images/arena.jpg',
+      tags: ['Nintendo DS', 'Game Dev', 'Homebrew', 'RPG'],
+      links: [
+        { label: 'Binary', href: 'http://projectwhiteley.com/pwdownloads/arena.nds', type: 'link' },
+        { label: 'Source', href: 'http://projectwhiteley.com/pwdownloads/arena_nds_src.zip', type: 'link' },
+      ],
+      highlights: [
+        'Rock Paper Scissors with RPG mechanics',
+        'Rock always wins design',
+        'First DS game project',
+      ],
+      enabled: true,
+    },
   ],
 
   experience: [

@@ -30,9 +30,6 @@
 }
 
 *{box-sizing:border-box}
-html{
-  scroll-padding-top: 80px;
-}
 html,body{height:100%}
 body{
   margin:0;
@@ -243,35 +240,15 @@ h1{
   background: color-mix(in srgb, var(--card) 85%, transparent);
   display:flex;
   flex-direction:column;
-  gap: 12px;
+  gap: 10px;
   min-height: 180px;
 }
 .project__top{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap: 10px;
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid color-mix(in srgb, var(--line) 40%, transparent);
+  display:flex; align-items:flex-start; justify-content:space-between; gap: 10px;
 }
 .project__name{font-weight:900; letter-spacing:-.02em}
-.project__desc{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.5;
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid color-mix(in srgb, var(--line) 40%, transparent);
-}
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid color-mix(in srgb, var(--line) 40%, transparent);
-}
+.project__desc{color:var(--muted); font-size:14px; line-height:1.5}
+.tags{display:flex; flex-wrap:wrap; gap:8px}
 .tag{
   font-size:12px;
   padding: 4px 8px;
@@ -423,33 +400,5 @@ h1{
 }
 .result:hover{border-color: var(--line); background: color-mix(in srgb, var(--bg2) 60%, transparent)}
 .result__k{font-weight:900}
-
-/* Mobile responsive adjustments */
-@media (max-width: 768px) {
-  .experience-card {
-    flex-direction: column !important;
-  }
-  
-  .experience-card__image {
-    width: auto !important;
-    max-width: 100% !important;
-    height: auto !important;
-    margin: 0 auto !important;
-    display: flex !important;
-    justify-content: center !important;
-  }
-  
-  .experience-card__image img {
-    width: 300px !important;
-    max-width: 100% !important;
-    height: 200px !important;
-    border-radius: 8px 8px 0 0 !important;
-    object-fit: cover !important;
-  }
-  
-  .experience-card__content {
-    border-radius: 0 0 8px 8px !important;
-  }
-}
 .result__t{color:var(--muted); font-size:12px}
 .command__hint{padding: 10px 12px 12px}

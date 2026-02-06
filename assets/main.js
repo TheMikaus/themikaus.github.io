@@ -152,10 +152,31 @@
     allTags.forEach(t => projectFilter.appendChild(el('option', { value: t }, [t])));
   }
 
-  function projectCard(p){
+  function projectCard(p, isPreview = false){
+    // Generate a URL-safe ID from project name
+    const projectId = p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    
+    // Determine emoji based on tags
+    let emoji = '💻'; // default
+    if (p.tags.some(t => ['Game Dev', 'GBA', 'Nintendo DS', 'Platformer'].includes(t))) {
+      emoji = '🎮';
+    } else if (p.tags.includes('Tools') || p.tags.includes('Vim') || p.tags.includes('Productivity')) {
+      emoji = '🛠️';
+    } else if (p.tags.includes('Unreal')) {
+      emoji = '🎯';
+    } else if (p.tags.includes('Audio') || p.tags.includes('Music')) {
+      emoji = '🎵';
+    } else if (p.tags.includes('Open Source')) {
+      emoji = '🌐';
+    }
+    
+    const cardChildren = [];
+    
+    // Build header
     const topChildren = [
       el('div', {}, [
-        el('div', { class:'project__name' }, [p.name]),
+        el('span', { class: 'project__emoji' }, [emoji]),
+        el('span', { class:'project__name' }, [p.name]),
       ])
     ];
     
@@ -168,12 +189,30 @@
         rel: 'noreferrer',
         class: 'pill',
         style: 'text-decoration: none; color: inherit;',
-        'data-linktype': link.type || 'link'
+        'data-linktype': link.type || 'link',
+        onclick: '(function(e){e.stopPropagation();})(event)'
       }, [link.label])));
       topChildren.push(linksContainer);
     }
     
-    const top = el('div', { class:'project__top' }, topChildren);
+    const top = el('div', { class:'project__top', style: isPreview ? 'padding: 14px; padding-bottom: 12px;' : 'padding: 14px 14px 0 14px; margin-bottom: 0; border-bottom: none;' }, topChildren);
+    
+    if (isPreview) {
+      // Preview: vertical layout with image, then header, then content
+      cardChildren.push(top);
+      if (p.image) {
+        cardChildren.push(
+          el('img', { 
+            src: p.image, 
+            alt: p.name,
+            style: 'width: 100%; height: 200px; object-fit: cover; display: block;'
+          })
+        );
+      }
+    } else {
+      // Full page: header first, then horizontal layout
+      cardChildren.push(top);
+    }
 
     const tags = el('div', { class:'tags' }, p.tags.map(t => el('span', { class:'tag' }, [t])));
 
@@ -182,13 +221,55 @@
       : null;
 
     const bodyKids = [
-      top,
       el('div', { class:'project__desc' }, [p.description]),
     ];
-    if (hi) bodyKids.push(hi);
+    if (hi && !isPreview) bodyKids.push(hi);
     bodyKids.push(tags);
 
-    return el('article', { class:'project' }, bodyKids);
+    if (isPreview) {
+      // For preview, add body directly
+      cardChildren.push(el('div', { class: 'project__body', style: 'padding: 14px; padding-top: 0;' }, bodyKids));
+    } else {
+      // For full page, create horizontal container with image and body
+      const horizontalContent = [];
+      
+      if (p.image) {
+        horizontalContent.push(
+          el('img', { 
+            src: p.image, 
+            alt: p.name
+          })
+        );
+      }
+      
+      horizontalContent.push(
+        el('div', { class: 'project__body', style: 'padding: 14px; padding-top: 0;' }, bodyKids)
+      );
+      
+      cardChildren.push(
+        el('div', { class: 'project__content' }, horizontalContent)
+      );
+    }
+
+    const cardClasses = isPreview ? 'project' : 'project project--horizontal';
+    const card = el('article', { 
+      class: cardClasses,
+      id: projectId,
+      style: 'padding: 0; overflow: hidden; cursor: pointer;'
+    }, cardChildren);
+    
+    // Add click handler to navigate to projects page (only on preview)
+    if (isPreview) {
+      card.addEventListener('click', (e) => {
+        // Don't navigate if clicking on a link
+        if (e.target.tagName === 'A' || e.target.closest('a')) {
+          return;
+        }
+        window.location.href = `projects.html#${projectId}`;
+      });
+    }
+
+    return card;
   }
 
   function renderProjects(){
@@ -231,7 +312,7 @@
       const projectSection = projectPreview.closest('.section');
       if (projectSection) projectSection.style.display = 'none';
     } else {
-      enabledProjects.slice(0, 3).forEach(p => projectPreview.appendChild(projectCard(p)));
+      enabledProjects.slice(0, 3).forEach(p => projectPreview.appendChild(projectCard(p, true)));
     }
   }
 
