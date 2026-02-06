@@ -221,7 +221,7 @@
       
       // Tags at bottom
       bodyContent.push(
-        el('div', { class: 'tags', style: 'margin-top: auto;' }, p.tags.map(t => el('span', { class: 'tag' }, [t])))
+        el('div', { class: 'tags', style: 'margin-top: auto; padding-top: 12px;' }, p.tags.map(t => el('span', { class: 'tag' }, [t])))
       );
       
       cardChildren.push(
