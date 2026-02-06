@@ -160,6 +160,10 @@
     let emoji = '💻'; // default
     if (p.tags.some(t => ['Game Dev', 'GBA', 'Nintendo DS', 'Platformer'].includes(t))) {
       emoji = '🎮';
+    } else if (p.tags.includes('Art') || p.tags.includes('Drawing') || p.tags.includes('Ink') || p.tags.includes('Watercolor') || p.tags.includes('Comics')) {
+      emoji = '🎨';
+    } else if (p.tags.includes('Writing') || p.tags.includes('Poetry') || p.tags.includes('Documents')) {
+      emoji = '📖';
     } else if (p.tags.includes('Tools') || p.tags.includes('Vim') || p.tags.includes('Productivity')) {
       emoji = '🛠️';
     } else if (p.tags.includes('Unreal')) {

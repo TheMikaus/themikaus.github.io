@@ -242,6 +242,59 @@ window.PORTFOLIO = {
       enabled: true,
     },
     {
+      name: 'Music Covers',
+      description: 'Collection of cover songs recorded over the years, including piano covers, collaborative covers, and various solo projects.',
+      year: 2018,
+      image: 'assets/images/covers.jpg',
+      tags: ['Music', 'Covers', 'Guitar', 'Piano'],
+      links: [
+        { label: '12 Covers (2016)', href: 'https://www.youtube.com/playlist?list=PLpXA7cbkVzSgyk0E1aI4kXGGrnWEYC2Dr', type: 'link' },
+        { label: '3 Covers (2018)', href: 'https://www.youtube.com/playlist?list=PLpXA7cbkVzSh0F1dbv3KaNQFCHvrUe7KG', type: 'link' },
+        { label: '3 Cover Collab (2014)', href: 'https://www.youtube.com/watch?v=lO3ZPSAcHQs', type: 'link' },
+        { label: 'Piano Covers', href: 'https://www.youtube.com/playlist?list=PLpXA7cbkVzSjzR5DN87jglyziVVPj001f', type: 'link' },
+      ],
+      highlights: [
+        '20+ cover songs recorded',
+        'Piano, guitar, and vocal covers',
+        'Collaborative and solo projects',
+      ],
+      enabled: true,
+    },
+    {
+      name: 'Noisy Llamas',
+      description: 'Group project with friends covering six songs. Started in 2017, took until 2021 to complete all tracks.',
+      year: 2017,
+      image: 'assets/images/noisy_llamas.jpg',
+      tags: ['Music', 'Band', 'Covers', 'Collaboration'],
+      links: [
+        { label: 'YouTube Playlist', href: 'https://www.youtube.com/playlist?list=PLpXA7cbkVzSjvVHpXxr_EK2x0_Yew98K6', type: 'link' },
+      ],
+      highlights: [
+        'Six cover songs with friends',
+        'Multi-year collaborative project',
+        'Alice in Chains, Days of the New, CCR',
+      ],
+      enabled: true,
+    },
+    {
+      name: 'Countermark',
+      description: 'Original music from my college band. Years of rewritten material including polished tracks and scratch recordings.',
+      year: 2017,
+      image: 'assets/images/countermark.jpg',
+      tags: ['Music', 'Band', 'Original', 'Album'],
+      links: [
+        { label: 'YouTube Playlist', href: 'https://www.youtube.com/playlist?list=PL3A9EFDFF5614AC47', type: 'link' },
+        { label: 'Too Far Gone (Rough Cut)', href: 'https://soundcloud.com/countermark-music/sets/too-far-gone-rough-cut', type: 'link' },
+        { label: 'The Rest', href: 'https://soundcloud.com/countermark-music/sets/the-rest', type: 'link' },
+      ],
+      highlights: [
+        'Original college band material',
+        'Full album and scratch tracks',
+        'Years of songwriting and recording',
+      ],
+      enabled: true,
+    },
+    {
       name: 'Fall',
       description: 'One of the first games I made. Ball falls through platforms, find the hole, board gets faster. First time learning about refresh rate issues and deltaTime.',
       year: 2006,
@@ -266,7 +319,6 @@ window.PORTFOLIO = {
       image: 'assets/images/schooled_first_take.jpg',
       tags: ['Music', 'Audio', 'Album'],
       links: [
-        { label: 'Download', href: 'assets/downloads/schooled_first_take.tar.gz', type: 'link' },
         { label: 'SoundCloud', href: 'https://soundcloud.com/mikaus/sets/schooled-first-take', type: 'link' },
       ],
       highlights: [
