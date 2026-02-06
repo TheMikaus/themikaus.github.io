@@ -101,13 +101,13 @@
             </div>
           </div>
 
-          <div class="comic-reader__image-container">
-            <img id="comicImage" class="comic-reader__image" src="" alt="Comic page" />
-          </div>
-
           <div class="comic-reader__nav">
             <button id="prevBtn" class="btn">← Previous</button>
             <button id="nextBtn" class="btn btn--primary">Next →</button>
+          </div>
+
+          <div class="comic-reader__image-container">
+            <img id="comicImage" class="comic-reader__image" src="" alt="Comic page" style="cursor: pointer;" />
           </div>
         </div>
       </div>
@@ -188,6 +188,27 @@
         } else if (e.key === 'ArrowRight' && currentPage < pages.length - 1) {
           currentPage++;
           updatePage();
+        }
+      });
+
+      // Image click navigation - left side = previous, right side = next
+      imageEl.addEventListener('click', (e) => {
+        const rect = imageEl.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const imageWidth = rect.width;
+        
+        if (clickX < imageWidth / 2) {
+          // Clicked left half - go to previous
+          if (currentPage > 0) {
+            currentPage--;
+            updatePage();
+          }
+        } else {
+          // Clicked right half - go to next
+          if (currentPage < pages.length - 1) {
+            currentPage++;
+            updatePage();
+          }
         }
       });
 
