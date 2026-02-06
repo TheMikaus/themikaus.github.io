@@ -233,15 +233,47 @@ h1{
   .grid{grid-template-columns: 1fr}
 }
 
+/* Projects page - always single column */
+body.projects-page #projectGrid {
+  grid-template-columns: 1fr;
+}
+
 .project{
-  padding: 14px;
+  padding: 0;
   border-radius: var(--radius);
   border:1px solid var(--line);
   background: color-mix(in srgb, var(--card) 85%, transparent);
   display:flex;
   flex-direction:column;
+  overflow: hidden;
+}
+.project__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 10px;
-  min-height: 180px;
+  flex-wrap: wrap;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(124,58,237,.1), rgba(34,197,94,.1));
+}
+.project__content {
+  display: flex;
+  flex-direction: row;
+}
+.project__content img {
+  width: 300px;
+  min-width: 300px;
+  height: auto;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .project__content {
+    flex-direction: column;
+  }
+  .project__content img {
+    width: 100%;
+    min-width: 100%;
+  }
 }
 .project__top{
   display:flex; align-items:flex-start; justify-content:space-between; gap: 10px;

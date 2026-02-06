@@ -170,36 +170,10 @@
       emoji = '🌐';
     }
     
-    const cardChildren = [];
-    
-    // Build header
-    const topChildren = [
-      el('div', {}, [
-        el('span', { class: 'project__emoji' }, [emoji]),
-        el('span', { class:'project__name' }, [p.name]),
-      ])
-    ];
-    
-    if (p.links && p.links.length > 0) {
-      const linksContainer = el('div', { 
-        style: 'display: flex; gap: 8px; flex-wrap: wrap;' 
-      }, p.links.map(link => el('a', {
-        href: link.href,
-        target: link.href?.startsWith('http') ? '_blank' : '_self',
-        rel: 'noreferrer',
-        class: 'pill',
-        style: 'text-decoration: none; color: inherit;',
-        'data-linktype': link.type || 'link',
-        onclick: '(function(e){e.stopPropagation();})(event)'
-      }, [link.label])));
-      topChildren.push(linksContainer);
-    }
-    
-    const top = el('div', { class:'project__top', style: isPreview ? 'padding: 14px; padding-bottom: 12px;' : 'padding: 14px 14px 0 14px; margin-bottom: 0; border-bottom: none;' }, topChildren);
-    
     if (isPreview) {
-      // Preview: vertical layout with image, then header, then content
-      cardChildren.push(top);
+      // Homepage preview: vertical card with image, title, link, description, tags at bottom
+      const cardChildren = [];
+      
       if (p.image) {
         cardChildren.push(
           el('img', { 
@@ -209,67 +183,141 @@
           })
         );
       }
+      
+      const bodyContent = [];
+      
+      // Title row with emoji, name, and links
+      const titleRowChildren = [
+        el('div', { style: 'display: flex; align-items: center; gap: 8px;' }, [
+          el('span', { style: 'font-size: 24px;' }, [emoji]),
+          el('div', { class: 'project__name' }, [p.name])
+        ])
+      ];
+      
+      if (p.links && p.links.length > 0) {
+        titleRowChildren.push(
+          el('div', { 
+            style: 'display: flex; gap: 8px; flex-wrap: wrap;' 
+          }, p.links.map(link => el('a', {
+            href: link.href,
+            target: link.href?.startsWith('http') ? '_blank' : '_self',
+            rel: 'noreferrer',
+            class: 'pill',
+            style: 'text-decoration: none; color: inherit;',
+            'data-linktype': link.type || 'link',
+            onclick: '(function(e){e.stopPropagation();})(event)'
+          }, [link.label])))
+        );
+      }
+      
+      bodyContent.push(
+        el('div', { style: 'display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;' }, titleRowChildren)
+      );
+      
+      // Description
+      bodyContent.push(
+        el('div', { class: 'project__desc', style: 'margin-bottom: auto;' }, [p.description])
+      );
+      
+      // Tags at bottom
+      bodyContent.push(
+        el('div', { class: 'tags', style: 'margin-top: auto;' }, p.tags.map(t => el('span', { class: 'tag' }, [t])))
+      );
+      
+      cardChildren.push(
+        el('div', { style: 'padding: 14px; display: flex; flex-direction: column; flex: 1;' }, bodyContent)
+      );
+      
+      const card = el('article', { 
+        class: 'project',
+        id: projectId,
+        style: 'padding: 0; overflow: hidden; cursor: pointer; display: flex; flex-direction: column;'
+      }, cardChildren);
+      
+      card.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' || e.target.closest('a')) return;
+        window.location.href = `projects.html#${projectId}`;
+      });
+      
+      return card;
     } else {
-      // Full page: header first, then horizontal layout
-      cardChildren.push(top);
-    }
-
-    const tags = el('div', { class:'tags' }, p.tags.map(t => el('span', { class:'tag' }, [t])));
-
-    const hi = (p.highlights && p.highlights.length)
-      ? el('ul', { class:'muted', style:'margin:0 0 0 16px; line-height:1.6' }, p.highlights.slice(0,3).map(h => el('li', {}, [h])))
-      : null;
-
-    const bodyKids = [
-      el('div', { class:'project__desc' }, [p.description]),
-    ];
-    if (hi && !isPreview) bodyKids.push(hi);
-    bodyKids.push(tags);
-
-    if (isPreview) {
-      // For preview, add body directly
-      cardChildren.push(el('div', { class: 'project__body', style: 'padding: 14px; padding-top: 0;' }, bodyKids));
-    } else {
-      // For full page, create horizontal container with image and body
-      const horizontalContent = [];
+      // Projects page: header bar, then image left + content right
+      const cardChildren = [];
+      
+      // Header bar
+      const headerChildren = [
+        el('div', { style: 'display: flex; align-items: center; gap: 8px;' }, [
+          el('span', { style: 'font-size: 24px;' }, [emoji]),
+          el('div', { class: 'project__name' }, [p.name])
+        ])
+      ];
+      
+      if (p.links && p.links.length > 0) {
+        headerChildren.push(
+          el('div', { 
+            style: 'display: flex; gap: 8px; flex-wrap: wrap; align-items: center;' 
+          }, p.links.map(link => el('a', {
+            href: link.href,
+            target: link.href?.startsWith('http') ? '_blank' : '_self',
+            rel: 'noreferrer',
+            class: 'pill',
+            style: 'text-decoration: none; color: inherit;',
+            'data-linktype': link.type || 'link',
+            onclick: '(function(e){e.stopPropagation();})(event)'
+          }, [link.label])))
+        );
+      }
+      
+      cardChildren.push(
+        el('div', { 
+          class: 'project__header',
+          style: 'padding: 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: linear-gradient(135deg, rgba(124,58,237,.1), rgba(34,197,94,.1));'
+        }, headerChildren)
+      );
+      
+      // Content area with image left and text right
+      const contentChildren = [];
       
       if (p.image) {
-        horizontalContent.push(
+        contentChildren.push(
           el('img', { 
             src: p.image, 
-            alt: p.name
+            alt: p.name,
+            style: 'width: 300px; min-width: 300px; height: auto; object-fit: cover;'
           })
         );
       }
       
-      horizontalContent.push(
-        el('div', { class: 'project__body', style: 'padding: 14px; padding-top: 0;' }, bodyKids)
+      // Body content
+      const bodyContent = [
+        el('div', { class: 'project__desc', style: 'margin-bottom: 12px;' }, [p.description])
+      ];
+      
+      if (p.highlights && p.highlights.length) {
+        bodyContent.push(
+          el('ul', { class: 'muted', style: 'margin: 0 0 12px 16px; line-height: 1.6;' }, 
+            p.highlights.slice(0, 3).map(h => el('li', {}, [h])))
+        );
+      }
+      
+      bodyContent.push(
+        el('div', { class: 'tags', style: 'margin-top: auto;' }, p.tags.map(t => el('span', { class: 'tag' }, [t])))
+      );
+      
+      contentChildren.push(
+        el('div', { style: 'padding: 14px; display: flex; flex-direction: column; flex: 1;' }, bodyContent)
       );
       
       cardChildren.push(
-        el('div', { class: 'project__content' }, horizontalContent)
+        el('div', { class: 'project__content', style: 'display: flex; flex-direction: row;' }, contentChildren)
       );
+      
+      return el('article', { 
+        class: 'project project--full',
+        id: projectId,
+        style: 'padding: 0; overflow: hidden;'
+      }, cardChildren);
     }
-
-    const cardClasses = isPreview ? 'project' : 'project project--horizontal';
-    const card = el('article', { 
-      class: cardClasses,
-      id: projectId,
-      style: 'padding: 0; overflow: hidden; cursor: pointer;'
-    }, cardChildren);
-    
-    // Add click handler to navigate to projects page (only on preview)
-    if (isPreview) {
-      card.addEventListener('click', (e) => {
-        // Don't navigate if clicking on a link
-        if (e.target.tagName === 'A' || e.target.closest('a')) {
-          return;
-        }
-        window.location.href = `projects.html#${projectId}`;
-      });
-    }
-
-    return card;
   }
 
   function renderProjects(){
