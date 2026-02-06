@@ -471,7 +471,7 @@ window.PORTFOLIO = {
       links: [
         { label: 'View Gallery', href: 'comic.html?id=inktober-2017', type: 'link' },
       ],
-      comicPages: Array.from({ length: 31 }, (_, i) => `assets/images/inktober_2017/Day${String(i + 1).padStart(3, '0')}.jpg`),
+      comicPages: Array.from({ length: 31 }, (_, i) => `assets/images/inktober_2017/Day${String(i + 1).padStart(2, '0')}.jpg`),
       highlights: [
         '31 daily drawings',
         'Completed on time',
@@ -488,7 +488,7 @@ window.PORTFOLIO = {
       links: [
         { label: 'View Gallery', href: 'comic.html?id=inktober-2016', type: 'link' },
       ],
-      comicPages: Array.from({ length: 31 }, (_, i) => `assets/images/inktober_2016/Day${String(i + 1).padStart(3, '0')}.jpg`),
+      comicPages: Array.from({ length: 31 }, (_, i) => `assets/images/inktober_2016/Day${String(i + 1).padStart(2, '0')}.jpg`),
       highlights: [
         '31 daily drawings',
         'Completed on time',
@@ -505,7 +505,7 @@ window.PORTFOLIO = {
       links: [
         { label: 'View Gallery', href: 'comic.html?id=inktober-2015', type: 'link' },
       ],
-      comicPages: Array.from({ length: 31 }, (_, i) => `assets/images/inktober_2015/Day${String(i + 1).padStart(3, '0')}.jpg`),
+      comicPages: Array.from({ length: 31 }, (_, i) => `assets/images/inktober_2015/Day${String(i + 1).padStart(2, '0')}.jpg`),
       highlights: [
         '31 daily drawings',
         'Completed on time',
