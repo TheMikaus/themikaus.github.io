@@ -140,6 +140,51 @@ window.PORTFOLIO = {
       enabled: true, // set to false to hide this project
     },
     {
+      name: 'Inktober 2023',
+      description: 'Inktober 2023! Created grouped images combining multiple days into single compositions.',
+      year: 2023,
+      image: 'assets/images/inktober_2023.jpg',
+      tags: ['Art', 'Ink', 'Drawing', 'Inktober'],
+      links: [
+        { label: 'View Gallery', href: 'comic.html?id=inktober-2023', type: 'link' },
+      ],
+      comicPages: [
+        'assets/images/inktober_2023/2023-Inktober-01-one-two-three.jpg',
+        'assets/images/inktober_2023/2023-Inktober-01-four-five-six.jpg',
+        'assets/images/inktober_2023/2023-Inktober-01-seven-eight-nine.jpg',
+        'assets/images/inktober_2023/2023-Inktober-02-10-11-12.jpg',
+        'assets/images/inktober_2023/2023-Inktober-02-13-14-15.jpg',
+        'assets/images/inktober_2023/2023-Inktober-02-16-17-18.jpg',
+        'assets/images/inktober_2023/2023-Inktober-02-19-20-21.jpg',
+        'assets/images/inktober_2023/2023-Inktober-02-22-23-24.jpg',
+        'assets/images/inktober_2023/2023-Inktober-02-25-26-27.jpg',
+        'assets/images/inktober_2023/2023-Inktober-02-28-29-30.jpg',
+      ],
+      highlights: [
+        'Grouped compositions',
+        'Multiple days per image',
+        'New approach to daily challenge',
+      ],
+      enabled: true,
+    },
+    {
+      name: 'Inktober 2022',
+      description: 'Inktober 2022! Completed all 31 daily drawings throughout October.',
+      year: 2022,
+      image: 'assets/images/inktober_2022.jpg',
+      tags: ['Art', 'Ink', 'Drawing', 'Inktober'],
+      links: [
+        { label: 'View Gallery', href: 'comic.html?id=inktober-2022', type: 'link' },
+      ],
+      comicPages: Array.from({ length: 31 }, (_, i) => `assets/images/inktober_2022/day_${String(i + 1).padStart(2, '0')}.jpg`),
+      highlights: [
+        '31 daily drawings',
+        'Completed on time',
+        'Continued tradition',
+      ],
+      enabled: true,
+    },
+    {
       name: 'Inktober 2021',
       description: 'Inktober 2021! Egg theme. Drawing is easier when I have a theme.',
       year: 2021,
