@@ -86,6 +86,7 @@ window.PORTFOLIO = {
       name: 'Unannounced Unreal Project',
       description:
         'Creating tools, and gameplay systems in UE for an unannounced project.',
+      year: 2024,
       tags: ['Unreal', 'GAS', 'Tools', 'ImGui', 'Workflow'],
       links: [
         //{ label: 'Samples', href: '#', type: 'link' },
@@ -99,6 +100,7 @@ window.PORTFOLIO = {
     {
       name: 'Band Tool Suite',
       description: 'Set of tools created by AI/myself to manage band related tasks.',
+      year: 2024,
       tags: ['Python', 'Audio', 'Metronome', 'JamStik', 'AI'],
       links: [
         { label: 'Github', href: 'https://github.com/TheMikaus/BandTools', type: 'link' },
@@ -113,6 +115,7 @@ window.PORTFOLIO = {
     {
       name: 'Card Maker',
       description: 'Contributing to the Open Source tool Card Maker',
+      year: 2023,
       tags: ['Open Source', 'C#', 'Card Maker', 'Tooling'],
       links: [
         { label: 'Fork', href: 'https://github.com/TheMikaus/cardmaker', type: 'link' },
@@ -126,6 +129,7 @@ window.PORTFOLIO = {
     {
       name: 'Sample Project',
       description: 'Add description',
+      year: 2024,
       tags: ['Unreal'],
       links: [
         //{ label: 'Samples', href: '#', type: 'link' },
@@ -138,6 +142,7 @@ window.PORTFOLIO = {
     {
       name: 'Redbird',
       description: 'Mega Man-style platformer in Python, originally intended as a wedding gift. Features player movement, shooting, jumping, monster spawning, and boss mechanics.',
+      year: 2013,
       image: 'assets/images/redbird.jpg',
       tags: ['Python', 'Pygame', 'Game Dev', 'Platformer', 'Tiled'],
       links: [
@@ -155,6 +160,7 @@ window.PORTFOLIO = {
     {
       name: 'Todo/Notes Vim Script',
       description: 'Vim script for taking daily notes and tracking time/tasks for work with syntax highlighting.',
+      year: 2015,
       image: 'assets/images/todo_notes_vim.jpg',
       tags: ['Vim', 'Vimscript', 'Productivity', 'Tools'],
       links: [
@@ -171,6 +177,7 @@ window.PORTFOLIO = {
     {
       name: 'Retrobot',
       description: 'Robot space game where you battle eight bosses. Built with modular architecture allowing backend changes and cross-platform compilation.',
+      year: 2012,
       image: 'assets/images/retrobot.jpg',
       tags: ['C', 'SDL', 'Game Dev', 'Cross-platform'],
       links: [
@@ -187,6 +194,7 @@ window.PORTFOLIO = {
     {
       name: 'Balloons',
       description: 'Quick GBA game about shooting balloons with custom sound effects.',
+      year: 2006,
       image: 'assets/images/balloons.jpg',
       tags: ['GBA', 'Game Dev', 'Homebrew'],
       links: [
@@ -202,6 +210,7 @@ window.PORTFOLIO = {
     {
       name: 'Monster Block',
       description: 'GBA game made for a competition with limited color palette constraints.',
+      year: 2007,
       image: 'assets/images/monster_block.jpg',
       tags: ['GBA', 'Game Dev', 'Homebrew', 'Competition'],
       links: [
@@ -218,6 +227,7 @@ window.PORTFOLIO = {
     {
       name: 'Arena',
       description: 'Nintendo DS Rock Paper Scissors game with RPG elements where "ROCK ALWAYS WINS".',
+      year: 2008,
       image: 'assets/images/arena.jpg',
       tags: ['Nintendo DS', 'Game Dev', 'Homebrew', 'RPG'],
       links: [

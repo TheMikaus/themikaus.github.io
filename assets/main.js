@@ -248,8 +248,9 @@
       const headerChildren = [
         el('div', { style: 'display: flex; align-items: center; gap: 8px;' }, [
           el('span', { style: 'font-size: 24px;' }, [emoji]),
-          el('div', { class: 'project__name' }, [p.name])
-        ])
+          el('div', { class: 'project__name' }, [p.name]),
+          p.year ? el('span', { class: 'muted', style: 'font-size: 14px; margin-left: 4px;' }, [`(${p.year})`]) : null
+        ].filter(Boolean))
       ];
       
       if (p.links && p.links.length > 0) {
