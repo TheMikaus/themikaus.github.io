@@ -69,6 +69,11 @@ a:hover{opacity:.9}
   gap: 14px;
 }
 
+/* Scroll offset for anchor links to account for sticky header */
+[id] {
+  scroll-margin-top: 90px;
+}
+
 .brand{display:flex; align-items:center; gap:12px}
 .brand__mark{
   width:42px; height:42px; border-radius:14px;
