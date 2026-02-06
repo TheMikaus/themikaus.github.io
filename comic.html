@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en" data-page="comic">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Michael "Mikaus" Whiteley — Comic Reader" />
+  <title>Comic Reader — Mikaus</title>
+
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:," />
+  <style>
+    .comic-reader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: calc(100vh - 200px);
+      padding: 20px;
+    }
+    .comic-reader__header {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .comic-reader__title {
+      font-size: 24px;
+      font-weight: 900;
+      margin: 0;
+    }
+    .comic-reader__controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .comic-reader__page-info {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .comic-reader__image-container {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .comic-reader__image {
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 4px;
+    }
+    .comic-reader__nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .comic-reader__nav button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn {
+      padding: 10px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--bg-surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .btn:hover:not(:disabled) {
+      background: var(--bg2);
+    }
+    .btn--primary {
+      background: linear-gradient(135deg, rgba(124,58,237,.9), rgba(34,197,94,.8));
+      color: white;
+      border: none;
+    }
+    .btn--ghost {
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <script src="assets/header.js"></script>
+
+  <main id="content">
+    <section class="section">
+      <div class="container">
+        <div class="comic-reader">
+          <div class="comic-reader__header">
+            <h1 class="comic-reader__title" id="comicTitle">Loading...</h1>
+            <div class="comic-reader__controls">
+              <span class="comic-reader__page-info" id="pageInfo">Page 1 of 1</span>
+              <a href="projects.html" class="btn btn--ghost">← Back to Projects</a>
+            </div>
+          </div>
+
+          <div class="comic-reader__image-container">
+            <img id="comicImage" class="comic-reader__image" src="" alt="Comic page" />
+          </div>
+
+          <div class="comic-reader__nav">
+            <button id="prevBtn" class="btn">← Previous</button>
+            <button id="nextBtn" class="btn btn--primary">Next →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="muted small">© <span id="year"></span> <span id="footerName">Michael "Mikaus" Whiteley</span></div>
+      <div class="muted small">Built for GitHub Pages • No build step</div>
+    </div>
+  </footer>
+
+  <script src="assets/content.js"></script>
+  <script>
+    (function() {
+      const data = window.PORTFOLIO || {};
+      const urlParams = new URLSearchParams(window.location.search);
+      const comicId = urlParams.get('id');
+
+      // Find the project by URL-safe ID
+      const project = data.projects?.find(p => {
+        const projectId = p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        return projectId === comicId;
+      });
+
+      if (!project || !project.comicPages) {
+        document.getElementById('comicTitle').textContent = 'Comic Not Found';
+        document.getElementById('comicImage').style.display = 'none';
+        document.getElementById('pageInfo').textContent = '';
+        return;
+      }
+
+      const pages = project.comicPages;
+      let currentPage = parseInt(urlParams.get('page') || '1', 10) - 1;
+      if (currentPage < 0 || currentPage >= pages.length) currentPage = 0;
+
+      const titleEl = document.getElementById('comicTitle');
+      const imageEl = document.getElementById('comicImage');
+      const pageInfoEl = document.getElementById('pageInfo');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      titleEl.textContent = project.name;
+
+      function updatePage() {
+        imageEl.src = pages[currentPage];
+        imageEl.alt = `${project.name} - Page ${currentPage + 1}`;
+        pageInfoEl.textContent = `Page ${currentPage + 1} of ${pages.length}`;
+        
+        prevBtn.disabled = currentPage === 0;
+        nextBtn.disabled = currentPage === pages.length - 1;
+
+        // Update URL without reload
+        const newUrl = `comic.html?id=${comicId}&page=${currentPage + 1}`;
+        window.history.replaceState({}, '', newUrl);
+      }
+
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 0) {
+          currentPage--;
+          updatePage();
+        }
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (currentPage < pages.length - 1) {
+          currentPage++;
+          updatePage();
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && currentPage > 0) {
+          currentPage--;
+          updatePage();
+        } else if (e.key === 'ArrowRight' && currentPage < pages.length - 1) {
+          currentPage++;
+          updatePage();
+        }
+      });
+
+      updatePage();
+
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+      if (data.name) document.getElementById('footerName').textContent = data.name;
+    })();
+  </script>
+</body>
+</html>
