@@ -130,13 +130,13 @@
       if (title.experienceId) {
         const link = el('a', {
           href: `experience.html#${title.experienceId}`,
-          style: 'text-decoration: none; color: inherit; display: block;'
-        }, [el('div', { class: 'card', style: 'overflow: hidden; padding: 0; transition: transform 0.2s; cursor: pointer;' }, cardChildren)]);
+          style: 'text-decoration: none; color: inherit; display: block; height: 100%;'
+        }, [el('div', { class: 'card', style: 'overflow: hidden; padding: 0; transition: transform 0.2s; cursor: pointer; height: 100%; display: flex; flex-direction: column;' }, cardChildren)]);
         link.addEventListener('mouseenter', (e) => e.currentTarget.firstChild.style.transform = 'translateY(-2px)');
         link.addEventListener('mouseleave', (e) => e.currentTarget.firstChild.style.transform = 'translateY(0)');
         shippedGrid.appendChild(link);
       } else {
-        const card = el('div', { class: 'card', style: 'overflow: hidden; padding: 0;' }, cardChildren);
+        const card = el('div', { class: 'card', style: 'overflow: hidden; padding: 0; height: 100%; display: flex; flex-direction: column;' }, cardChildren);
         shippedGrid.appendChild(card);
       }
     });
