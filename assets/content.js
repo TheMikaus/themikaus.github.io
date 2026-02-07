@@ -116,6 +116,7 @@ window.PORTFOLIO = {
       name: 'Sample Project',
       description: 'Add description',
       year: 2024,
+      yearUnknown: false, // set to true to display 'Year Unknown' instead of the year
       tags: ['Unreal'],
       links: [
         //{ label: 'Samples', href: '#', type: 'link' },
@@ -543,7 +544,7 @@ window.PORTFOLIO = {
     {
       name: 'Arena',
       description: 'Nintendo DS Rock Paper Scissors game with RPG elements',
-      year: 2008,
+      year: 2005,
       image: 'assets/images/arena.jpg',
       tags: ['Nintendo DS', 'Game Dev', 'Homebrew', 'RPG'],
       links: [
@@ -559,7 +560,7 @@ window.PORTFOLIO = {
     {
       name: 'Monster Block',
       description: 'GBA game made for a competition with limited color palette constraints.',
-      year: 2007,
+      year: 2005,
       image: 'assets/images/monster_block.jpg',
       tags: ['GBA', 'Game Dev', 'Homebrew', 'Competition'],
       links: [
@@ -576,7 +577,7 @@ window.PORTFOLIO = {
     {
       name: 'Balloons',
       description: 'Quick GBA game about shooting balloons with custom sound effects.',
-      year: 2006,
+      year: 2005,
       image: 'assets/images/balloons.jpg',
       tags: ['GBA', 'Game Dev', 'Homebrew'],
       links: [
@@ -592,7 +593,7 @@ window.PORTFOLIO = {
     {
       name: 'Fall',
       description: 'One of the first games I made. Ball falls through platforms, find the hole, board gets faster. First time learning about refresh rate issues and deltaTime.',
-      year: 2006,
+      year: 2000,
       image: 'assets/images/fall.jpg',
       tags: ['GBA', 'Game Dev', 'C++', 'SDL'],
       links: [
@@ -640,6 +641,25 @@ window.PORTFOLIO = {
         'Five original songs',
         'Solo debut album',
         'Early musical work',
+      ],
+      enabled: true,
+    },
+    {
+      name: 'Xiangqi',
+      description: 'Chinese Chess game created as a foray into Java. Also ported to GBA to test development setup and explore platform limitations.',
+      year: 2004,
+      image: 'assets/images/xiangqi.jpg',
+      tags: ['Java', 'GBA', 'Game Dev', 'Homebrew'],
+      links: [
+        { label: 'Java Binary', href: 'assets/downloads/chinese_chess_java.zip', type: 'link' },
+        { label: 'Java Source', href: 'assets/downloads/chinese_chess_java_src.zip', type: 'link' },
+        { label: 'GBA Binary', href: 'assets/downloads/chinese_chess.gba', type: 'link' },
+      ],
+      highlights: [
+        'First Java project',
+        'Cross-platform implementation',
+        'GBA homebrew version',
+        'Testing platform capabilities',
       ],
       enabled: true,
     },
