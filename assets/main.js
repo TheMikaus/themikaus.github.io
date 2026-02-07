@@ -146,11 +146,32 @@
   const projectGrid = $('#projectGrid');
   const projectSearch = $('#projectSearch');
   const projectFilter = $('#projectFilter');
+  const categoryFilters = document.querySelectorAll('.category-filter');
 
   const allTags = Array.from(new Set(data.projects.flatMap(p => p.tags))).sort((a,b)=>a.localeCompare(b));
   if (projectFilter){
     allTags.forEach(t => projectFilter.appendChild(el('option', { value: t }, [t])));
   }
+
+  // Category mapping
+  const categoryMap = {
+    'games': ['Game Dev', 'GBA', 'Nintendo DS', 'Platformer', 'Game Jam', 'Action', 'Windows'],
+    'art': ['Art', 'Drawing', 'Ink', 'Watercolor', 'Comics', 'Inktober', 'Fan Art', 'Hand-drawn', 'Digital', 'Woodworking', 'Crafting'],
+    'music': ['Music', 'Audio', 'Covers', 'Band', 'Original', 'Album', 'Guitar', 'Piano', 'Collaboration'],
+    'tools': ['Tools', 'Vim', 'Productivity', 'Tooling', 'Open Source', 'Metronome', 'JamStik']
+  };
+
+  let activeCategory = 'all';
+
+  // Category filter button handlers
+  categoryFilters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeCategory = btn.dataset.category;
+      categoryFilters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProjects();
+    });
+  });
 
   function projectCard(p, isPreview = false){
     // Generate a URL-safe ID from project name
@@ -332,8 +353,19 @@
 
     const filtered = data.projects.filter(p => {
       if (p.enabled === false) return false; // filter out disabled projects
+      
+      // Category filter
+      if (activeCategory !== 'all') {
+        const categoryTags = categoryMap[activeCategory] || [];
+        const matchesCategory = p.tags.some(tag => categoryTags.includes(tag));
+        if (!matchesCategory) return false;
+      }
+      
+      // Tag filter
       const matchesTag = (f === 'all') || p.tags.includes(f);
       if (!matchesTag) return false;
+      
+      // Search filter
       if (!q) return true;
       const hay = [
         p.name, p.description,

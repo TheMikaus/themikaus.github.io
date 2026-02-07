@@ -235,6 +235,23 @@ window.PORTFOLIO = {
       enabled: true,
     },
     {
+      name: 'Now It\'s My Turn',
+      description: 'Game made for the GMTK 2019 game jam with Karurosu. Theme: "Only One" - in our case, one thing moves at a time. Each entity in the world is given a time slice.',
+      year: 2019,
+      image: 'assets/images/now_its_my_turn.jpg',
+      tags: ['Game Dev', 'Game Jam', 'Action', 'Windows'],
+      links: [
+        { label: 'Download on itch.io', href: 'https://themikaus.itch.io/now-its-my-turn-gmtk2019', type: 'link' },
+      ],
+      highlights: [
+        'GMTK 2019 game jam submission',
+        'Turn-based action gameplay',
+        'Goal: collect all blue pickups',
+        'Score based on pickups remaining',
+      ],
+      enabled: true,
+    },
+    {
       name: 'Inktober 2019',
       description: 'Inktober 2019! Included sketches and final inked pieces. Later images featured egg character theme.',
       year: 2019,

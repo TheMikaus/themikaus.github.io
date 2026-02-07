@@ -97,6 +97,7 @@ a:hover{opacity:.9}
   border-radius: 12px;
   cursor:pointer;
   box-shadow: none;
+  transition: all 0.2s;
 }
 .btn--ghost{
   background: transparent;
@@ -107,6 +108,15 @@ a:hover{opacity:.9}
   color: white;
 }
 .btn:active{transform: translateY(1px)}
+.btn:hover{
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+}
+
+.category-filter.active{
+  background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(34,197,94,.15));
+  border-color: rgba(124,58,237,.4);
+  font-weight: 600;
+}
 
 .hero{
   padding: 36px 0 24px;
