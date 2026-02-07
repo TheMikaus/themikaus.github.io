@@ -177,22 +177,78 @@
     // Generate a URL-safe ID from project name
     const projectId = p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     
-    // Determine emoji based on tags
-    let emoji = '💻'; // default
-    if (p.tags.some(t => ['Game Dev', 'GBA', 'Nintendo DS', 'Platformer'].includes(t))) {
-      emoji = '🎮';
+    // Custom SVG icons for platforms
+    const createGBAIcon = () => {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('width', '24');
+      svg.setAttribute('height', '24');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('fill', 'none');
+      svg.innerHTML = `
+        <rect x="3" y="5" width="18" height="14" rx="2" fill="currentColor" opacity="0.2"/>
+        <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="6" y="8" width="12" height="7" rx="0.5" fill="currentColor" opacity="0.1"/>
+        <circle cx="7.5" cy="17" r="0.8" fill="currentColor"/>
+        <circle cx="9.5" cy="17" r="0.8" fill="currentColor"/>
+        <rect x="14" y="16.5" width="2" height="1" rx="0.3" fill="currentColor"/>
+        <rect x="17" y="16.5" width="2" height="1" rx="0.3" fill="currentColor"/>
+      `;
+      return svg;
+    };
+    
+    const createNDSIcon = () => {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('width', '24');
+      svg.setAttribute('height', '24');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('fill', 'none');
+      svg.innerHTML = `
+        <rect x="4" y="3" width="16" height="9" rx="1" fill="currentColor" opacity="0.2"/>
+        <rect x="4" y="3" width="16" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="6" y="5" width="12" height="5" rx="0.5" fill="currentColor" opacity="0.1"/>
+        <rect x="4" y="12" width="16" height="9" rx="1" fill="currentColor" opacity="0.2"/>
+        <rect x="4" y="12" width="16" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="6" y="14" width="12" height="5" rx="0.5" fill="currentColor" opacity="0.1"/>
+      `;
+      return svg;
+    };
+    
+    const createUEIcon = () => {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('width', '24');
+      svg.setAttribute('height', '24');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('fill', 'none');
+      svg.innerHTML = `
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M9 8v8l3-2.5v-3L9 8z" fill="currentColor"/>
+        <path d="M15 8v8l-3-2.5v-3L15 8z" fill="currentColor"/>
+      `;
+      return svg;
+    };
+    
+    // Determine icon based on tags - prioritize platform-specific game icons
+    let icon = '💻'; // default emoji
+    
+    // Check for platform-specific game icons first
+    if (p.tags.includes('Unreal') || p.name === 'Now It\'s My Turn') {
+      icon = createUEIcon();
+    } else if (p.tags.includes('GBA')) {
+      icon = createGBAIcon();
+    } else if (p.tags.includes('Nintendo DS')) {
+      icon = createNDSIcon();
+    } else if (p.tags.some(t => ['Game Dev', 'Platformer', 'Windows', 'Game Jam'].includes(t))) {
+      icon = '🎮'; // PC/Windows games
     } else if (p.tags.includes('Art') || p.tags.includes('Drawing') || p.tags.includes('Ink') || p.tags.includes('Watercolor') || p.tags.includes('Comics')) {
-      emoji = '🎨';
+      icon = '🎨';
     } else if (p.tags.includes('Writing') || p.tags.includes('Poetry') || p.tags.includes('Documents')) {
-      emoji = '📖';
+      icon = '📖';
     } else if (p.tags.includes('Tools') || p.tags.includes('Vim') || p.tags.includes('Productivity')) {
-      emoji = '🛠️';
-    } else if (p.tags.includes('Unreal')) {
-      emoji = '🎯';
+      icon = '🛠️';
     } else if (p.tags.includes('Audio') || p.tags.includes('Music')) {
-      emoji = '🎵';
+      icon = '🎵';
     } else if (p.tags.includes('Open Source')) {
-      emoji = '🌐';
+      icon = '🌐';
     }
     
     if (isPreview) {
@@ -211,10 +267,10 @@
       
       const bodyContent = [];
       
-      // Title row with emoji, name, and links
+      // Title row with icon, name, and links
       const titleRowChildren = [
         el('div', { style: 'display: flex; align-items: center; gap: 8px;' }, [
-          el('span', { style: 'font-size: 24px;' }, [emoji]),
+          typeof icon === 'string' ? el('span', { style: 'font-size: 24px;' }, [icon]) : icon,
           el('div', { class: 'project__name' }, [p.name])
         ])
       ];
@@ -272,7 +328,7 @@
       // Header bar
       const headerChildren = [
         el('div', { style: 'display: flex; align-items: center; gap: 8px;' }, [
-          el('span', { style: 'font-size: 24px;' }, [emoji]),
+          typeof icon === 'string' ? el('span', { style: 'font-size: 24px;' }, [icon]) : icon,
           el('div', { class: 'project__name' }, [p.name]),
           p.yearUnknown ? el('span', { class: 'muted', style: 'font-size: 14px; margin-left: 4px;' }, ['(Year Unknown)']) : (p.year ? el('span', { class: 'muted', style: 'font-size: 14px; margin-left: 4px;' }, [`(${p.year})`]) : null)
         ].filter(Boolean))
