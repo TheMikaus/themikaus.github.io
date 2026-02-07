@@ -186,6 +186,23 @@ window.PORTFOLIO = {
       enabled: true,
     },
     {
+      name: 'Better Days',
+      description: 'Collaboration with a friend in Japan. Original song released as Out of the Loop.',
+      year: 2021,
+      image: 'assets/images/better_days.jpg',
+      tags: ['Music', 'Original', 'Collaboration', 'International'],
+      links: [
+        { label: 'YouTube Music', href: 'https://music.youtube.com/watch?v=3B0WAquMMUQ', type: 'link' },
+        { label: 'Apple Music', href: 'https://music.apple.com/ng/artist/out-of-the-loop/1553005918', type: 'link' },
+      ],
+      highlights: [
+        'International collaboration',
+        'Out of the Loop project',
+        'Released on major platforms',
+      ],
+      enabled: true,
+    },
+    {
       name: 'Inktober 2021',
       description: 'Inktober 2021! Egg theme. Drawing is easier when I have a theme.',
       year: 2021,
