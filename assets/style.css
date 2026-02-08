@@ -284,11 +284,11 @@ body.projects-page #projectGrid {
 }
 @media (max-width: 768px) {
   .project__content {
-    flex-direction: column;
+    flex-direction: column !important;
   }
   .project__content img {
-    width: 100%;
-    min-width: 100%;
+    width: 100% !important;
+    min-width: 100% !important;
   }
 }
 .project__top{
