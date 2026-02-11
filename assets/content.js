@@ -684,6 +684,19 @@ window.PORTFOLIO = {
 
   experience: [
     {
+      id: 'one-marble-short',
+      title: 'Green Marble (Co-Founder, Programmer, Artist)',
+      org: 'One Marble Short LLC',
+      when: 'February 2026 - Present',
+      where: 'Everett, Washington, United States • Remote',
+      image: 'assets/images/LinkedInLogo.png',
+      enabled: true,
+      showOnMainPage: true,
+      bullets: [
+        'Co-founded One Marble Short LLC.',
+      ],
+    },
+    {
       id: 'amazon-game-studios',
       title: 'Software Engineer (AI/Gameplay/Tools)',
       org: 'Amazon Game Studios',
