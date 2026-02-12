@@ -290,6 +290,22 @@ body.projects-page #projectGrid {
     width: 100% !important;
     min-width: 100% !important;
   }
+
+  .experience-card {
+    flex-direction: column;
+  }
+  .experience-card__image {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .experience-card__image img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 8px 8px 0 0 !important;
+  }
+  .experience-card__content {
+    border-radius: 0 0 8px 8px !important;
+  }
 }
 .project__top{
   display:flex; align-items:flex-start; justify-content:space-between; gap: 10px;
