@@ -738,7 +738,7 @@ window.PORTFOLIO = {
       where: 'Redmond, WA',
       image: 'assets/images/insight_global_logo.jpg',
       enabled: true,
-      showOnMainPage: true,
+      showOnMainPage: false,
       bullets: [
         'Evaluated UI framework for Minecraft Earth prototype.',
       ],
