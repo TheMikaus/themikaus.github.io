@@ -113,6 +113,20 @@ window.PORTFOLIO = {
       enabled: true, // set to false to hide this project
     },
     {
+      name: 'Out of the Loop',
+      description: 'Working on songs for the band.',
+      year: 2025,
+      tags: ['Music', 'Band', 'Alt Rock'],
+      links: [
+      ],
+      highlights: [
+        'Music',
+        'Band',
+        'Alt Rock',
+      ],
+      enabled: true, // set to false to hide this project
+    },
+    {
       name: 'Sample Project',
       description: 'Add description',
       year: 2024,
