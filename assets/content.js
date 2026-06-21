@@ -98,17 +98,17 @@ window.PORTFOLIO = {
       enabled: true, // set to false to hide this project
     },
     {
-      name: 'Band Tool Suite',
-      description: 'Set of tools created by AI/myself to manage band related tasks.',
-      year: 2024,
-      tags: ['Python', 'Audio', 'Metronome', 'JamStik', 'AI'],
+      name: 'Unannounced Playdate Project',
+      description: 'Working on a game for the Playdate handheld.',
+      year: 2025,
+      tags: ['C', 'Playdate'],
       links: [
-        { label: 'Github', href: 'https://github.com/TheMikaus/BandTools', type: 'link' },
+        { label: 'One Marble Short', href: 'https://onemarbleshort.com', type: 'link' },
       ],
       highlights: [
-        'Audio Annotation Tool',
-        'Metronome',
-        'JamStik Recorder'
+        'Game',
+        'Playdate',
+        'One Marble Short',
       ],
       enabled: true, // set to false to hide this project
     },
@@ -694,6 +694,19 @@ window.PORTFOLIO = {
       showOnMainPage: true,
       bullets: [
         'Co-founded One Marble Short LLC.',
+      ],
+    },
+    {
+      id: 'amazon-leo',
+      title: 'Embedded Software Engineer',
+      org: 'Amazon (Project Leo)',
+      when: 'May 2026 - Present',
+      where: 'Redmond, Washington, United States',
+      image: 'assets/images/amazon_leo_logo.png',
+      enabled: true,
+      showOnMainPage: true,
+      bullets: [
+        'Trying not to break very expensive things',
       ],
     },
     {
