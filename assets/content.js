@@ -83,21 +83,6 @@ window.PORTFOLIO = {
 
   projects: [
     {
-      name: 'Unannounced Unreal Project',
-      description:
-        'Creating tools, and gameplay systems in UE for an unannounced project.',
-      year: 2024,
-      tags: ['Unreal', 'GAS', 'Tools', 'ImGui', 'Workflow'],
-      links: [
-        //{ label: 'Samples', href: '#', type: 'link' },
-      ],
-      highlights: [
-        'Exploring Unreal Engine and its underlying systems.',
-        'Implementing gameplay systems using Gameplay Ability System (GAS).', 
-      ],
-      enabled: true, // set to false to hide this project
-    },
-    {
       name: 'Unannounced Playdate Project',
       description: 'Working on a game for the Playdate handheld.',
       year: 2025,
@@ -106,7 +91,7 @@ window.PORTFOLIO = {
         { label: 'One Marble Short', href: 'https://onemarbleshort.com', type: 'link' },
       ],
       highlights: [
-        'Game',
+        'Game Dev',
         'Playdate',
         'One Marble Short',
       ],
@@ -123,6 +108,21 @@ window.PORTFOLIO = {
         'Music',
         'Band',
         'Alt Rock',
+      ],
+      enabled: true, // set to false to hide this project
+    },
+    {
+      name: 'Unannounced Unreal Project',
+      description:
+        'Creating tools, and gameplay systems in UE for an unannounced project.',
+      year: 2024,
+      tags: ['Unreal', 'GAS', 'Tools', 'ImGui', 'Workflow'],
+      links: [
+        //{ label: 'Samples', href: '#', type: 'link' },
+      ],
+      highlights: [
+        'Exploring Unreal Engine and its underlying systems.',
+        'Implementing gameplay systems using Gameplay Ability System (GAS).', 
       ],
       enabled: true, // set to false to hide this project
     },
