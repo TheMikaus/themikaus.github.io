@@ -86,12 +86,11 @@ window.PORTFOLIO = {
       name: 'Unannounced Playdate Project',
       description: 'Working on a game for the Playdate handheld.',
       year: 2025,
-      tags: ['C', 'Playdate'],
+      tags: ['C', 'Playdate', 'Game Dev'],
       links: [
         { label: 'One Marble Short', href: 'https://onemarbleshort.com', type: 'link' },
       ],
       highlights: [
-        'Game Dev',
         'Playdate',
         'One Marble Short',
       ],
